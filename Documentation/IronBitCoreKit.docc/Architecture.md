@@ -15,6 +15,7 @@ IronBitCoreKit được chia thành nhiều module nhỏ, mỗi module chịu tr
 - `IronBitCoreKit`: nền tảng chung như extensions, logging, error, dependency injection và concurrency.
 - `IronBitCoreKitNetwork`: networking core, transport, interceptor, decoding, cache, reachability, security và mock.
 - `IronBitCoreKitStorage`: storage core, key-value store, database store, UserDefaults, Keychain, file storage, SwiftData, CoreData và unified cache.
+- `IronBitCoreKitDomain`: entity, value object, domain errors, validation errors và use case abstractions.
 - `IronBitCoreKitTesting`: helper phục vụ unit test và snapshot test.
 - `IronBitCoreKitDev`: công cụ chỉ dùng trong Debug như dev menu, environment switcher và preview container.
 
