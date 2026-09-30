@@ -13,4 +13,5 @@ Package được thiết kế để tách rõ các lớp nền tảng như core 
 - Networking core, transport, interceptor, cache, reachability và security.
 - Storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - Domain entity, value object, validation errors và use case abstractions.
+- Repository abstractions, DTO mapper, network/local/hybrid repositories và sync strategies.
 - Test doubles, mocks và snapshot helpers.

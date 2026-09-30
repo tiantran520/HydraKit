@@ -31,5 +31,6 @@ Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần c�
 - `IronBitCoreKitNetwork`: core networking, transport, interceptor, decoding, cache, reachability, security và mock.
 - `IronBitCoreKitStorage`: storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - `IronBitCoreKitDomain`: entity, value object, domain errors và use case abstractions.
+- `IronBitCoreKitRepository`: repository protocols, DTO mapper, network/local/hybrid repositories, cache-first/network-first sync strategies và mock repository.
 - `IronBitCoreKitTesting`: mock, spy, stub, fake, snapshot và async assertions.
 - `IronBitCoreKitDev`: công cụ debug-only cho dev menu, environment switcher và preview.
