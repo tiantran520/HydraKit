@@ -29,6 +29,7 @@ Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần c�
 
 - `IronBitCoreKit`: tiện ích nền tảng, logging, dependency injection, concurrency.
 - `IronBitCoreKitUI`: design tokens, theme environment, SwiftUI component library theo nhóm Input, Display, Container, Feedback, Overlay, Navigation, Layout, cùng state views, modifiers, forms, media, animation, accessibility, localization và preview helpers.
+- `IronBitCoreKitNavigation`: coordinator, route abstraction, router, route registry, deep link, tab, sheet và flow coordinators.
 - `IronBitCoreKitNetwork`: core networking, transport, interceptor, decoding, cache, reachability, security và mock.
 - `IronBitCoreKitStorage`: storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - `IronBitCoreKitDomain`: entity, value object, domain errors và use case abstractions.
