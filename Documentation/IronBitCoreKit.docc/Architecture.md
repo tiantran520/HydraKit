@@ -14,9 +14,12 @@ IronBitCoreKit được chia thành nhiều module nhỏ, mỗi module chịu tr
 
 - `IronBitCoreKit`: nền tảng chung như extensions, logging, error, dependency injection và concurrency.
 - `IronBitCoreKitNetwork`: networking core, transport, interceptor, decoding, cache, reachability, security và mock.
+- `IronBitCoreKitStorage`: storage core, key-value store, database store, UserDefaults, Keychain, file storage, SwiftData, CoreData và unified cache.
 - `IronBitCoreKitTesting`: helper phục vụ unit test và snapshot test.
 - `IronBitCoreKitDev`: công cụ chỉ dùng trong Debug như dev menu, environment switcher và preview container.
 
 ## Hướng Phát Triển
 
 Các module mới nên được thêm theo hướng nhỏ, rõ ràng và có test tương ứng. Với API public, hãy bổ sung doc comment để DocC có thể sinh tài liệu đầy đủ.
+
+Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần cập nhật `README.md` và các file Markdown/DocC liên quan. Quy tắc này giúp tài liệu luôn phản ánh đúng cấu trúc và khả năng hiện tại của package.

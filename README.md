@@ -21,9 +21,14 @@ Chạy lệnh sau tại thư mục gốc của project:
 swift test
 ```
 
+## Quy tắc cập nhật tài liệu
+
+Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần cập nhật `README.md` và các file Markdown/DocC liên quan để tài liệu luôn khớp với code hiện tại.
+
 ## Cấu trúc module
 
 - `IronBitCoreKit`: tiện ích nền tảng, logging, dependency injection, concurrency.
 - `IronBitCoreKitNetwork`: core networking, transport, interceptor, decoding, cache, reachability, security và mock.
+- `IronBitCoreKitStorage`: storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - `IronBitCoreKitTesting`: mock, spy, stub, fake, snapshot và async assertions.
 - `IronBitCoreKitDev`: công cụ debug-only cho dev menu, environment switcher và preview.

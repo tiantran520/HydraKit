@@ -11,4 +11,5 @@ Package được thiết kế để tách rõ các lớp nền tảng như core 
 - Dependency injection.
 - Async/concurrency helpers.
 - Networking core, transport, interceptor, cache, reachability và security.
+- Storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - Test doubles, mocks và snapshot helpers.
