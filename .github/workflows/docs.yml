@@ -1,0 +1,13 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  docs:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build documentation
+        run: swift package generate-documentation --target IronBitCoreKit
