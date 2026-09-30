@@ -35,5 +35,7 @@ Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần c�
 - `IronBitCoreKitDomain`: entity, value object, domain errors và use case abstractions.
 - `IronBitCoreKitRepository`: repository protocols, DTO mapper, network/local/hybrid repositories, cache-first/network-first sync strategies và mock repository.
 - `IronBitCoreKitMVVM`: ViewModel protocol/base class, ViewState, StateContainer, ViewAction dispatcher, binding helpers, effect handling và preview mock view model.
+- `IronBitCoreKitSecurity`: auth token/state/service, OAuth2 + PKCE, biometric auth, session management, auto logout, crypto/hash/random helpers.
+- `IronBitCoreKitAnalytics`: analytics service/provider, event/screen tracking, crash logging, performance monitor, remote config, A/B testing và feature flags.
 - `IronBitCoreKitTesting`: mock, spy, stub, fake, snapshot và async assertions.
 - `IronBitCoreKitDev`: công cụ debug-only cho dev menu, environment switcher và preview.

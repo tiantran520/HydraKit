@@ -1,30 +1,35 @@
-# Kiến Trúc
+# Architecture
 
-IronBitCoreKit được chia thành nhiều module nhỏ, mỗi module chịu trách nhiệm cho một nhóm chức năng rõ ràng.
+IronBitCoreKit được chia thành nhiều target nhỏ, mỗi target chịu trách nhiệm cho một lớp chức năng rõ ràng.
 
 ## Nguyên Tắc
 
 - Tách module theo trách nhiệm.
 - Ưu tiên protocol-oriented design.
-- Giữ public API có doc comment.
-- Hỗ trợ testability thông qua mock, stub, spy và dependency injection.
+- Dùng async/await cho API bất đồng bộ.
+- Public API có DocC comment.
 - Tránh phụ thuộc vòng giữa các module.
+- Cập nhật README/DocC khi thêm module, file, API hoặc tính năng mới.
 
 ## Nhóm Module
 
-- `IronBitCoreKit`: nền tảng chung như extensions, logging, error, dependency injection và concurrency.
-- `IronBitCoreKitUI`: lớp giao diện SwiftUI gồm design tokens, theme environment, component library chia theo Input, Display, Container, Feedback, Overlay, Navigation và Layout, cùng state views, modifiers, layout helpers, forms, media, animation, accessibility, localization và preview helpers.
-- `IronBitCoreKitNavigation`: lớp điều hướng gồm coordinator lifecycle, route abstraction, navigation router, route registry, deep link parsing/handling, tab coordinator, sheet coordinator và flow coordinator.
-- `IronBitCoreKitNetwork`: networking core, transport, interceptor, decoding, cache, reachability, security và mock.
-- `IronBitCoreKitStorage`: storage core, key-value store, database store, UserDefaults, Keychain, file storage, SwiftData, CoreData và unified cache.
-- `IronBitCoreKitDomain`: entity, value object, domain errors, validation errors và use case abstractions.
-- `IronBitCoreKitRepository`: repository contracts, DTO mapping, network/local/hybrid repository implementations, cache-first/network-first sync strategies và mock repository.
-- `IronBitCoreKitMVVM`: lớp presentation logic gồm ViewModel protocol/base class, ViewState, StateContainer, ViewAction dispatcher, binding helpers, effect handling, cancellable task và mock view model cho preview.
-- `IronBitCoreKitTesting`: helper phục vụ unit test và snapshot test.
-- `IronBitCoreKitDev`: công cụ chỉ dùng trong Debug như dev menu, environment switcher và preview container.
+- `IronBitCoreKit`: core utilities, logging, error handling, DI, concurrency helpers.
+- `IronBitCoreKitUI`: design tokens, theme, component library, state views, layout, forms, media, accessibility, localization.
+- `IronBitCoreKitNavigation`: coordinator, route abstraction, router, deep link, tab/sheet/flow coordinators.
+- `IronBitCoreKitNetwork`: endpoint, request builder, URLSession client, retry, interceptor, decoding, cache, reachability, security, mock.
+- `IronBitCoreKitStorage`: key-value store, UserDefaults, Keychain, file storage, SwiftData, CoreData, cache.
+- `IronBitCoreKitDomain`: entity, value object, validation/domain errors, use case abstraction.
+- `IronBitCoreKitRepository`: readable/writable/streamable repositories, DTO mapper, network/local/hybrid strategies, mock.
+- `IronBitCoreKitMVVM`: ViewModel, ViewState, ViewAction, binding helpers, effects, preview mocks.
+- `IronBitCoreKitSecurity`: auth, OAuth2/PKCE, biometric, session, crypto helpers.
+- `IronBitCoreKitAnalytics`: event/screen tracking, crash reporting, performance, remote config, A/B testing, feature flags.
+- `IronBitCoreKitTesting`: mocks, test doubles, snapshot helpers, async assertions.
+- `IronBitCoreKitDev`: debug-only dev menu, environment switcher, preview helpers.
 
-## Hướng Phát Triển
+## Dependency Direction
 
-Các module mới nên được thêm theo hướng nhỏ, rõ ràng và có test tương ứng. Với API public, hãy bổ sung doc comment để DocC có thể sinh tài liệu đầy đủ.
+App layer nên phụ thuộc vào các module IronBitCoreKit. Các module hạ tầng như Network/Storage/Repository được thiết kế bằng protocol để Domain và MVVM không cần biết implementation cụ thể.
 
-Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần cập nhật `README.md` và các file Markdown/DocC liên quan. Quy tắc này giúp tài liệu luôn phản ánh đúng cấu trúc và khả năng hiện tại của package.
+## Migration
+
+Hiện package đang ở giai đoạn `0.1.0`, chưa có version public cũ để migrate. Khi có breaking change, hướng dẫn migration sẽ được thêm vào tài liệu này và `CHANGELOG.md`.

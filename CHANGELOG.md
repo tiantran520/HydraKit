@@ -12,3 +12,5 @@
 - Triển khai `IronBitCoreKitDomain` với entity, value object, example entities, domain errors và use case abstractions.
 - Triển khai `IronBitCoreKitRepository` với core repository protocols, DTO mapper, network/local/hybrid repositories, sync strategies và mock repository.
 - Triển khai `IronBitCoreKitMVVM` với ViewModel, ViewState, ViewAction, binding helpers, effect handling, cancellable task và mock view model cho preview.
+- Triển khai `IronBitCoreKitSecurity` với auth, OAuth2/PKCE, biometric auth, session management, auto logout và crypto helpers.
+- Triển khai `IronBitCoreKitAnalytics` với analytics provider/service, event/screen tracking, crash reporting, performance monitor, remote config, A/B testing và feature flags.

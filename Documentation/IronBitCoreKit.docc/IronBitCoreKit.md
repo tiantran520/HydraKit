@@ -1,20 +1,49 @@
 # IronBitCoreKit
 
-IronBitCoreKit là bộ công cụ Swift Package hỗ trợ xây dựng ứng dụng Apple platform theo kiến trúc module hóa.
+@Metadata {
+    @DisplayName("IronBitCoreKit")
+    @PageKind(article)
+}
 
-Package được thiết kế để tách rõ các lớp nền tảng như core utilities, networking, storage, domain, repository, UI, testing và dev tools. Mục tiêu là giúp codebase dễ mở rộng, dễ kiểm thử và có thể tái sử dụng giữa nhiều ứng dụng.
+IronBitCoreKit là bộ Swift Package module hóa cho ứng dụng Apple platform.
 
-## Chủ Đề Chính
+Package gom các lớp nền tảng thường gặp trong một app hiện đại: core utilities, UI, navigation, networking, storage, domain, repository, MVVM, security, analytics, testing và dev tools.
 
-- Core utilities và extensions.
-- Logging và error handling.
-- Dependency injection.
-- Async/concurrency helpers.
-- UI design tokens, theme, component library theo nhóm Input, Display, Container, Feedback, Overlay, Navigation, Layout, state views, forms, media, animation, accessibility và localization.
-- Navigation coordinator, route abstraction, router, route registry, deep link, tab, sheet và flow coordinators.
-- Networking core, transport, interceptor, cache, reachability và security.
-- Storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
-- Domain entity, value object, validation errors và use case abstractions.
-- Repository abstractions, DTO mapper, network/local/hybrid repositories và sync strategies.
-- MVVM ViewModel, ViewState, ViewAction dispatcher, binding helpers, effect handling và preview mocks.
-- Test doubles, mocks và snapshot helpers.
+## Mục Tiêu
+
+- Tách chức năng thành nhiều target nhỏ, dễ import theo nhu cầu.
+- Ưu tiên protocol-oriented design để dễ mock, test và thay implementation.
+- Dùng async/await cho API bất đồng bộ.
+- Giữ public API có DocC comment để sinh tài liệu tự động.
+- Cung cấp example có thể chạy độc lập trong `Examples/`.
+
+## Topics
+
+### Bắt Đầu
+
+- <doc:GettingStarted>
+- <doc:Architecture>
+
+### Bài Viết
+
+- <doc:DependencyInjection>
+- <doc:Networking>
+- <doc:Navigation>
+- <doc:Theming>
+- <doc:Testing>
+
+## Cài Đặt
+
+Thêm package vào Xcode hoặc `Package.swift`:
+
+```swift
+.package(url: "git@github.com:tiantran520/IronBitCoreKit.git", branch: "main")
+```
+
+Sau đó import target cần dùng:
+
+```swift
+import IronBitCoreKit
+import IronBitCoreKitUI
+import IronBitCoreKitNetwork
+```
