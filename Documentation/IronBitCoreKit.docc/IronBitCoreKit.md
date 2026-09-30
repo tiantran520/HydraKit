@@ -10,7 +10,7 @@ Package được thiết kế để tách rõ các lớp nền tảng như core 
 - Logging và error handling.
 - Dependency injection.
 - Async/concurrency helpers.
-- UI design tokens, theme, components, state views, layout, forms, media, animation, accessibility và localization.
+- UI design tokens, theme, component library theo nhóm Input, Display, Container, Feedback, Overlay, Navigation, Layout, state views, forms, media, animation, accessibility và localization.
 - Networking core, transport, interceptor, cache, reachability và security.
 - Storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - Domain entity, value object, validation errors và use case abstractions.

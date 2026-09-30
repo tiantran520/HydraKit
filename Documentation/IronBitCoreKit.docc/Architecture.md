@@ -13,7 +13,7 @@ IronBitCoreKit được chia thành nhiều module nhỏ, mỗi module chịu tr
 ## Nhóm Module
 
 - `IronBitCoreKit`: nền tảng chung như extensions, logging, error, dependency injection và concurrency.
-- `IronBitCoreKitUI`: lớp giao diện SwiftUI gồm design tokens, theme environment, component library, state views, modifiers, layout helpers, forms, media, animation, accessibility, localization và preview helpers.
+- `IronBitCoreKitUI`: lớp giao diện SwiftUI gồm design tokens, theme environment, component library chia theo Input, Display, Container, Feedback, Overlay, Navigation và Layout, cùng state views, modifiers, layout helpers, forms, media, animation, accessibility, localization và preview helpers.
 - `IronBitCoreKitNetwork`: networking core, transport, interceptor, decoding, cache, reachability, security và mock.
 - `IronBitCoreKitStorage`: storage core, key-value store, database store, UserDefaults, Keychain, file storage, SwiftData, CoreData và unified cache.
 - `IronBitCoreKitDomain`: entity, value object, domain errors, validation errors và use case abstractions.
