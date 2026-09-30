@@ -16,4 +16,5 @@ Package được thiết kế để tách rõ các lớp nền tảng như core 
 - Storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - Domain entity, value object, validation errors và use case abstractions.
 - Repository abstractions, DTO mapper, network/local/hybrid repositories và sync strategies.
+- MVVM ViewModel, ViewState, ViewAction dispatcher, binding helpers, effect handling và preview mocks.
 - Test doubles, mocks và snapshot helpers.

@@ -34,5 +34,6 @@ Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần c�
 - `IronBitCoreKitStorage`: storage core, UserDefaults, Keychain, file storage, SwiftData, CoreData và cache.
 - `IronBitCoreKitDomain`: entity, value object, domain errors và use case abstractions.
 - `IronBitCoreKitRepository`: repository protocols, DTO mapper, network/local/hybrid repositories, cache-first/network-first sync strategies và mock repository.
+- `IronBitCoreKitMVVM`: ViewModel protocol/base class, ViewState, StateContainer, ViewAction dispatcher, binding helpers, effect handling và preview mock view model.
 - `IronBitCoreKitTesting`: mock, spy, stub, fake, snapshot và async assertions.
 - `IronBitCoreKitDev`: công cụ debug-only cho dev menu, environment switcher và preview.
