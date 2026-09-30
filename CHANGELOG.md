@@ -1,5 +1,7 @@
-# Changelog
+# Nhật Ký Thay Đổi
 
 ## 0.1.0
 
-- Initial package skeleton.
+- Khởi tạo skeleton Swift Package Manager cho IronBitCoreKit.
+- Thêm các target chính và test target tương ứng.
+- Triển khai nền tảng ban đầu cho `IronBitCoreKit`, `IronBitCoreKitNetwork`, `IronBitCoreKitTesting` và `IronBitCoreKitDev`.

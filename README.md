@@ -1,3 +1,29 @@
 # IronBitCoreKit
 
-Skeleton Swift Package Manager package for IronBitCoreKit.
+IronBitCoreKit là bộ Swift Package dùng để xây dựng ứng dụng Apple platform theo hướng module hóa.
+
+Package bao gồm các nhóm chính như core utilities, UI, navigation, network, storage, domain, repository, MVVM, security, analytics, testing và dev tools.
+
+## Yêu cầu
+
+- Swift 5.10
+- iOS 17 trở lên
+- macOS 14 trở lên
+- watchOS 10 trở lên
+- tvOS 17 trở lên
+- visionOS 1 trở lên
+
+## Kiểm tra package
+
+Chạy lệnh sau tại thư mục gốc của project:
+
+```bash
+swift test
+```
+
+## Cấu trúc module
+
+- `IronBitCoreKit`: tiện ích nền tảng, logging, dependency injection, concurrency.
+- `IronBitCoreKitNetwork`: core networking, transport, interceptor, decoding, cache, reachability, security và mock.
+- `IronBitCoreKitTesting`: mock, spy, stub, fake, snapshot và async assertions.
+- `IronBitCoreKitDev`: công cụ debug-only cho dev menu, environment switcher và preview.
