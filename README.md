@@ -31,7 +31,7 @@ git@github.com:tiantran520/IronBitCoreKit.git
 git@github.com:tiantran520/IronBitCoreKit.git
 ```
 
-4. Chọn dependency rule phù hợp. Trong giai đoạn đang phát triển, dùng `Branch` là `main`. Khi package đã có release tag ổn định, có thể dùng `Exact Version` hoặc `Up to Next Major Version`.
+4. Chọn dependency rule phù hợp. Trong giai đoạn đang phát triển, dùng `Branch` là `main`. Không chọn `Up to Next Major Version` nếu repository chưa có Git tag release như `1.0.0`.
 5. Chọn target app cần sử dụng package.
 6. Tick các product cần add, ví dụ: `IronBitCoreKit`, `IronBitCoreKitUI`, `IronBitCoreKitNetwork`, `IronBitCoreKitNavigation`, `IronBitCoreKitStorage`.
 
@@ -59,6 +59,34 @@ Sau đó khai báo product cần dùng trong target:
     ]
 )
 ```
+
+### Lỗi Khi Add Package Theo Version
+
+Nếu Xcode báo lỗi tương tự:
+
+```text
+Failed to resolve dependencies because no versions of 'ironbitcorekit' match the requirement 1.0.0..<2.0.0
+```
+
+Nguyên nhân là Xcode đang dùng rule `Up to Next Major Version` với version `1.0.0`, nhưng repository chưa có Git tag `1.0.0`.
+
+Cách xử lý nhanh trong Xcode:
+
+1. Xóa package dependency vừa add lỗi.
+2. Chọn `File` > `Add Package Dependencies...`.
+3. Dán lại URL `git@github.com:tiantran520/IronBitCoreKit.git`.
+4. Ở `Dependency Rule`, chọn `Branch`.
+5. Nhập branch `main`.
+6. Add lại các product cần dùng.
+
+Nếu muốn dùng rule theo version, repository cần có tag release trước:
+
+```bash
+git tag 1.0.0
+git push origin 1.0.0
+```
+
+Sau khi tag đã được push lên GitHub, bạn có thể add package bằng `Up to Next Major Version` với version `1.0.0`.
 
 ### Chọn Product Theo Nhu Cầu
 
