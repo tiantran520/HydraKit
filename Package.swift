@@ -102,8 +102,7 @@ let package = Package(
                 "IronBitCoreKitStorage",
                 "IronBitCoreKitRepository",
                 "IronBitCoreKitMVVM",
-                "IronBitCoreKitAnalytics",
-                "IronBitCoreKitTesting"
+                "IronBitCoreKitAnalytics"
             ],
             exclude: ["README.md"]
         ),

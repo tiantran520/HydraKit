@@ -37,6 +37,8 @@ git@github.com:tiantran520/IronBitCoreKit.git
 
 Sau khi Xcode resolve xong, import module cần dùng trong source code.
 
+Lưu ý: không add `IronBitCoreKitTesting` vào app target. Product này dùng `XCTest`, chỉ add vào test target như `MyAppTests`.
+
 ### Cài Bằng Swift Package Manager
 
 Nếu project của bạn là Swift package, thêm dependency vào `Package.swift`:
@@ -88,6 +90,27 @@ git push origin 1.0.0
 
 Sau khi tag đã được push lên GitHub, bạn có thể add package bằng `Up to Next Major Version` với version `1.0.0`.
 
+### Lỗi Link XCTest Khi Add Package
+
+Nếu app target báo lỗi như:
+
+```text
+Could not find or use auto-linked framework 'XCTest'
+Undefined symbols for architecture arm64: XCTest.XCTFail
+```
+
+Nguyên nhân thường là app target đang link nhầm `IronBitCoreKitTesting`. Module này dùng `XCTest`, nên chỉ dành cho test target.
+
+Cách xử lý trong Xcode:
+
+1. Chọn project app.
+2. Chọn app target, ví dụ `MyApp`.
+3. Vào `General` > `Frameworks, Libraries, and Embedded Content`.
+4. Xóa `IronBitCoreKitTesting` khỏi app target nếu có.
+5. Chọn test target, ví dụ `MyAppTests`.
+6. Add `IronBitCoreKitTesting` vào test target nếu cần dùng mock, spy, stub, fake hoặc async assertions.
+7. Chọn `Product` > `Clean Build Folder`, rồi build lại.
+
 ### Chọn Product Theo Nhu Cầu
 
 Bạn không cần add toàn bộ package nếu app chỉ dùng một phần. Nên chọn module theo tính năng:
@@ -102,7 +125,7 @@ Bạn không cần add toàn bộ package nếu app chỉ dùng một phần. N�
 - Dùng ViewModel/ViewState/effect/binding: `IronBitCoreKitMVVM`
 - Dùng auth/OAuth/biometric/session/crypto: `IronBitCoreKitSecurity`
 - Dùng analytics/feature flag/remote config: `IronBitCoreKitAnalytics`
-- Dùng mock, spy, stub, fake, async assertions trong test: `IronBitCoreKitTesting`
+- Dùng mock, spy, stub, fake, async assertions trong test target: `IronBitCoreKitTesting`
 - Dùng dev menu và environment switcher trong Debug: `IronBitCoreKitDev`
 
 ### Import Vào Code
