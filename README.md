@@ -103,22 +103,74 @@ struct ContentView: View {
 }
 ```
 
+## Điều Hướng Tài Liệu
+
+Dùng các link dưới đây để đi thẳng tới hướng dẫn của từng phần trong cây thư mục project.
+
+### Hướng Dẫn Theo Target
+
+| Target | Tài liệu | Source |
+| --- | --- | --- |
+| `IronBitCoreKit` | [README](Sources/IronBitCoreKit/README.md) | [Sources/IronBitCoreKit](Sources/IronBitCoreKit/) |
+| `IronBitCoreKitUI` | [README](Sources/IronBitCoreKitUI/README.md) | [Sources/IronBitCoreKitUI](Sources/IronBitCoreKitUI/) |
+| `IronBitCoreKitNavigation` | [README](Sources/IronBitCoreKitNavigation/README.md) | [Sources/IronBitCoreKitNavigation](Sources/IronBitCoreKitNavigation/) |
+| `IronBitCoreKitNetwork` | [README](Sources/IronBitCoreKitNetwork/README.md) | [Sources/IronBitCoreKitNetwork](Sources/IronBitCoreKitNetwork/) |
+| `IronBitCoreKitStorage` | [README](Sources/IronBitCoreKitStorage/README.md) | [Sources/IronBitCoreKitStorage](Sources/IronBitCoreKitStorage/) |
+| `IronBitCoreKitDomain` | [README](Sources/IronBitCoreKitDomain/README.md) | [Sources/IronBitCoreKitDomain](Sources/IronBitCoreKitDomain/) |
+| `IronBitCoreKitRepository` | [README](Sources/IronBitCoreKitRepository/README.md) | [Sources/IronBitCoreKitRepository](Sources/IronBitCoreKitRepository/) |
+| `IronBitCoreKitMVVM` | [README](Sources/IronBitCoreKitMVVM/README.md) | [Sources/IronBitCoreKitMVVM](Sources/IronBitCoreKitMVVM/) |
+| `IronBitCoreKitSecurity` | [README](Sources/IronBitCoreKitSecurity/README.md) | [Sources/IronBitCoreKitSecurity](Sources/IronBitCoreKitSecurity/) |
+| `IronBitCoreKitAnalytics` | [README](Sources/IronBitCoreKitAnalytics/README.md) | [Sources/IronBitCoreKitAnalytics](Sources/IronBitCoreKitAnalytics/) |
+| `IronBitCoreKitTesting` | [README](Sources/IronBitCoreKitTesting/README.md) | [Sources/IronBitCoreKitTesting](Sources/IronBitCoreKitTesting/) |
+| `IronBitCoreKitDev` | [README](Sources/IronBitCoreKitDev/README.md) | [Sources/IronBitCoreKitDev](Sources/IronBitCoreKitDev/) |
+
+### DocC Articles
+
+| Chủ đề | Link |
+| --- | --- |
+| Landing page | [Documentation/IronBitCoreKit.docc/IronBitCoreKit.md](Documentation/IronBitCoreKit.docc/IronBitCoreKit.md) |
+| Bắt đầu sử dụng | [Documentation/IronBitCoreKit.docc/GettingStarted.md](Documentation/IronBitCoreKit.docc/GettingStarted.md) |
+| Kiến trúc package | [Documentation/IronBitCoreKit.docc/Architecture.md](Documentation/IronBitCoreKit.docc/Architecture.md) |
+| Dependency Injection | [Documentation/IronBitCoreKit.docc/Articles/DependencyInjection.md](Documentation/IronBitCoreKit.docc/Articles/DependencyInjection.md) |
+| Networking | [Documentation/IronBitCoreKit.docc/Articles/Networking.md](Documentation/IronBitCoreKit.docc/Articles/Networking.md) |
+| Navigation | [Documentation/IronBitCoreKit.docc/Articles/Navigation.md](Documentation/IronBitCoreKit.docc/Articles/Navigation.md) |
+| Theming | [Documentation/IronBitCoreKit.docc/Articles/Theming.md](Documentation/IronBitCoreKit.docc/Articles/Theming.md) |
+| Testing | [Documentation/IronBitCoreKit.docc/Articles/Testing.md](Documentation/IronBitCoreKit.docc/Articles/Testing.md) |
+
+### Examples
+
+| Example | Hướng dẫn | Code chính |
+| --- | --- | --- |
+| BasicApp | [README](Examples/BasicApp/README.md) | [BasicApp.swift](Examples/BasicApp/Sources/BasicApp/BasicApp.swift) |
+| NetworkExample | [README](Examples/NetworkExample/README.md) | [NetworkExample.swift](Examples/NetworkExample/Sources/NetworkExample/NetworkExample.swift) |
+| NavigationExample | [README](Examples/NavigationExample/README.md) | [NavigationExample.swift](Examples/NavigationExample/Sources/NavigationExample/NavigationExample.swift) |
+| FullStackExample | [README](Examples/FullStackExample/README.md) | [FullStackExample.swift](Examples/FullStackExample/Sources/FullStackExample/FullStackExample.swift) |
+
+### File Gốc Cần Biết
+
+| File | Mục đích |
+| --- | --- |
+| [Package.swift](Package.swift) | Khai báo platforms, products, targets, dependencies và test targets. |
+| [CHANGELOG.md](CHANGELOG.md) | Theo dõi thay đổi theo version. |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Quy tắc đóng góp và phát triển. |
+| [LICENSE](LICENSE) | License của package. |
+
 ## Module
 
 | Target | Mục đích |
 | --- | --- |
-| `IronBitCoreKit` | Core utilities, extensions, logging, error handling, dependency injection, concurrency helpers. |
-| `IronBitCoreKitUI` | Design tokens, theme environment, SwiftUI components, state views, modifiers, layout, forms, media, animation, accessibility, localization, preview helpers. |
-| `IronBitCoreKitNavigation` | Coordinator, route abstraction, router, route registry, deep link, tab coordinator, sheet coordinator, flow coordinator. |
-| `IronBitCoreKitNetwork` | Endpoint, request builder, URLSession client, retry, timeout, interceptor, decoding, cache, reachability, security, mock network client. |
-| `IronBitCoreKitStorage` | Storage protocols, type-safe keys, UserDefaults, Keychain, file storage, SwiftData, CoreData, cache. |
-| `IronBitCoreKitDomain` | Entity, value object, validation/domain errors, use case abstractions. |
-| `IronBitCoreKitRepository` | Readable/writable/streamable repository contracts, DTO mapper, network/local/hybrid repositories, sync strategies, mock repository. |
-| `IronBitCoreKitMVVM` | ViewModel protocol/base class, ViewState, StateContainer, ViewAction dispatcher, binding helpers, effects, cancellable task, preview mock view model. |
-| `IronBitCoreKitSecurity` | Auth token/state/service, OAuth2 + PKCE, biometric auth, session management, auto logout, crypto/hash/random helpers. |
-| `IronBitCoreKitAnalytics` | Analytics provider/service, event/screen tracking, crash logging, performance monitor, remote config, A/B testing, feature flags. |
-| `IronBitCoreKitTesting` | Mock helpers, spy/stub/fake, snapshot helpers, async XCTest assertions. |
-| `IronBitCoreKitDev` | Debug-only dev menu, environment switcher, mock data provider, preview container. |
+| [`IronBitCoreKit`](Sources/IronBitCoreKit/README.md) | Core utilities, extensions, logging, error handling, dependency injection, concurrency helpers. |
+| [`IronBitCoreKitUI`](Sources/IronBitCoreKitUI/README.md) | Design tokens, theme environment, SwiftUI components, state views, modifiers, layout, forms, media, animation, accessibility, localization, preview helpers. |
+| [`IronBitCoreKitNavigation`](Sources/IronBitCoreKitNavigation/README.md) | Coordinator, route abstraction, router, route registry, deep link, tab coordinator, sheet coordinator, flow coordinator. |
+| [`IronBitCoreKitNetwork`](Sources/IronBitCoreKitNetwork/README.md) | Endpoint, request builder, URLSession client, retry, timeout, interceptor, decoding, cache, reachability, security, mock network client. |
+| [`IronBitCoreKitStorage`](Sources/IronBitCoreKitStorage/README.md) | Storage protocols, type-safe keys, UserDefaults, Keychain, file storage, SwiftData, CoreData, cache. |
+| [`IronBitCoreKitDomain`](Sources/IronBitCoreKitDomain/README.md) | Entity, value object, validation/domain errors, use case abstractions. |
+| [`IronBitCoreKitRepository`](Sources/IronBitCoreKitRepository/README.md) | Readable/writable/streamable repository contracts, DTO mapper, network/local/hybrid repositories, sync strategies, mock repository. |
+| [`IronBitCoreKitMVVM`](Sources/IronBitCoreKitMVVM/README.md) | ViewModel protocol/base class, ViewState, StateContainer, ViewAction dispatcher, binding helpers, effects, cancellable task, preview mock view model. |
+| [`IronBitCoreKitSecurity`](Sources/IronBitCoreKitSecurity/README.md) | Auth token/state/service, OAuth2 + PKCE, biometric auth, session management, auto logout, crypto/hash/random helpers. |
+| [`IronBitCoreKitAnalytics`](Sources/IronBitCoreKitAnalytics/README.md) | Analytics provider/service, event/screen tracking, crash logging, performance monitor, remote config, A/B testing, feature flags. |
+| [`IronBitCoreKitTesting`](Sources/IronBitCoreKitTesting/README.md) | Mock helpers, spy/stub/fake, snapshot helpers, async XCTest assertions. |
+| [`IronBitCoreKitDev`](Sources/IronBitCoreKitDev/README.md) | Debug-only dev menu, environment switcher, mock data provider, preview container. |
 
 ## Ví Dụ Nhanh
 
@@ -205,10 +257,10 @@ swift run
 
 Danh sách example:
 
-- `Examples/BasicApp`: demo UI cơ bản với `IronBitCoreKitUI`.
-- `Examples/NetworkExample`: demo gọi API bằng mock network client.
-- `Examples/NavigationExample`: demo route/router/coordinator.
-- `Examples/FullStackExample`: demo MVVM + Repository + Navigation + UI.
+- [`Examples/BasicApp`](Examples/BasicApp/README.md): demo UI cơ bản với `IronBitCoreKitUI`.
+- [`Examples/NetworkExample`](Examples/NetworkExample/README.md): demo gọi API bằng mock network client.
+- [`Examples/NavigationExample`](Examples/NavigationExample/README.md): demo route/router/coordinator.
+- [`Examples/FullStackExample`](Examples/FullStackExample/README.md): demo MVVM + Repository + Navigation + UI.
 
 ## Documentation
 
@@ -220,19 +272,15 @@ Documentation/IronBitCoreKit.docc/
 
 Các bài viết chính:
 
-- `GettingStarted.md`
-- `Architecture.md`
-- `Articles/DependencyInjection.md`
-- `Articles/Networking.md`
-- `Articles/Navigation.md`
-- `Articles/Theming.md`
-- `Articles/Testing.md`
+- [GettingStarted.md](Documentation/IronBitCoreKit.docc/GettingStarted.md)
+- [Architecture.md](Documentation/IronBitCoreKit.docc/Architecture.md)
+- [Articles/DependencyInjection.md](Documentation/IronBitCoreKit.docc/Articles/DependencyInjection.md)
+- [Articles/Networking.md](Documentation/IronBitCoreKit.docc/Articles/Networking.md)
+- [Articles/Navigation.md](Documentation/IronBitCoreKit.docc/Articles/Navigation.md)
+- [Articles/Theming.md](Documentation/IronBitCoreKit.docc/Articles/Theming.md)
+- [Articles/Testing.md](Documentation/IronBitCoreKit.docc/Articles/Testing.md)
 
-Mỗi target cũng có README riêng tại:
-
-```text
-Sources/<TargetName>/README.md
-```
+Mỗi target cũng có README riêng tại [`Sources/<TargetName>/README.md`](Sources/).
 
 ## Kiểm Tra
 
