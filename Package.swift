@@ -27,26 +27,34 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "IronBitCoreKit"),
+        .target(
+            name: "IronBitCoreKit",
+            exclude: ["README.md"]
+        ),
         .target(
             name: "IronBitCoreKitUI",
-            dependencies: ["IronBitCoreKit"]
+            dependencies: ["IronBitCoreKit"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitNavigation",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitUI"]
+            dependencies: ["IronBitCoreKit", "IronBitCoreKitUI"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitNetwork",
-            dependencies: ["IronBitCoreKit"]
+            dependencies: ["IronBitCoreKit"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitStorage",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitSecurity"]
+            dependencies: ["IronBitCoreKit", "IronBitCoreKitSecurity"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitDomain",
-            dependencies: ["IronBitCoreKit"]
+            dependencies: ["IronBitCoreKit"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitRepository",
@@ -54,19 +62,23 @@ let package = Package(
                 "IronBitCoreKitDomain",
                 "IronBitCoreKitNetwork",
                 "IronBitCoreKitStorage"
-            ]
+            ],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitMVVM",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitDomain"]
+            dependencies: ["IronBitCoreKit", "IronBitCoreKitDomain"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitSecurity",
-            dependencies: ["IronBitCoreKit"]
+            dependencies: ["IronBitCoreKit"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitAnalytics",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitNetwork"]
+            dependencies: ["IronBitCoreKit", "IronBitCoreKitNetwork"],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitTesting",
@@ -77,7 +89,8 @@ let package = Package(
                 "IronBitCoreKitStorage",
                 "IronBitCoreKitRepository",
                 "IronBitCoreKitMVVM"
-            ]
+            ],
+            exclude: ["README.md"]
         ),
         .target(
             name: "IronBitCoreKitDev",
@@ -91,7 +104,8 @@ let package = Package(
                 "IronBitCoreKitMVVM",
                 "IronBitCoreKitAnalytics",
                 "IronBitCoreKitTesting"
-            ]
+            ],
+            exclude: ["README.md"]
         ),
         .testTarget(name: "IronBitCoreKitTests", dependencies: ["IronBitCoreKit"]),
         .testTarget(name: "IronBitCoreKitUITests", dependencies: ["IronBitCoreKitUI"]),
