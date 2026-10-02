@@ -37,7 +37,7 @@ git@github.com:tiantran520/HydraKit.git
 
 Sau khi Xcode resolve xong, import module cần dùng trong source code.
 
-Lưu ý: không add `HydraKitTesting` vào app target. Product này dùng `XCTest`, chỉ add vào test target như `MyAppTests`.
+Từ `1.0.1`, `HydraKitTesting` không còn là public product để tránh app target link nhầm `XCTest`.
 
 ### Cài Bằng Swift Package Manager
 
@@ -99,7 +99,7 @@ Could not find or use auto-linked framework 'XCTest'
 Undefined symbols for architecture arm64: XCTest.XCTFail
 ```
 
-Nguyên nhân thường là app target đang link nhầm `HydraKitTesting`. Module này dùng `XCTest`, nên chỉ dành cho test target.
+Nguyên nhân thường là app target đang link nhầm `HydraKitTesting` từ version cũ. Module này dùng `XCTest`, nên không được link vào app target.
 
 Cách xử lý trong Xcode:
 
@@ -107,9 +107,8 @@ Cách xử lý trong Xcode:
 2. Chọn app target, ví dụ `MyApp`.
 3. Vào `General` > `Frameworks, Libraries, and Embedded Content`.
 4. Xóa `HydraKitTesting` khỏi app target nếu có.
-5. Chọn test target, ví dụ `MyAppTests`.
-6. Add `HydraKitTesting` vào test target nếu cần dùng mock, spy, stub, fake hoặc async assertions.
-7. Chọn `Product` > `Clean Build Folder`, rồi build lại.
+5. Update package lên `1.0.1` hoặc mới hơn.
+6. Chọn `Product` > `Clean Build Folder`, rồi build lại.
 
 ### Chọn Product Theo Nhu Cầu
 
@@ -125,7 +124,6 @@ Bạn không cần add toàn bộ package nếu app chỉ dùng một phần. N�
 - Dùng ViewModel/HKViewState/effect/binding: `HydraKitMVVM`
 - Dùng auth/OAuth/biometric/session/crypto: `HydraKitSecurity`
 - Dùng analytics/feature flag/remote config: `HydraKitAnalytics`
-- Dùng mock, spy, stub, fake, async assertions trong test target: `HydraKitTesting`
 - Dùng dev menu và environment switcher trong Debug: `HydraKitDev`
 
 ### Import Vào Code
@@ -220,7 +218,7 @@ Dùng các link dưới đây để đi thẳng tới hướng dẫn của từn
 | [`HydraKitMVVM`](Sources/HydraKitMVVM/README.md) | ViewModel protocol/base class, HKViewState, HKStateContainer, ViewAction dispatcher, binding helpers, effects, cancellable task, preview mock view model. |
 | [`HydraKitSecurity`](Sources/HydraKitSecurity/README.md) | Auth token/state/service, OAuth2 + PKCE, biometric auth, session management, auto logout, crypto/hash/random helpers. |
 | [`HydraKitAnalytics`](Sources/HydraKitAnalytics/README.md) | Analytics provider/service, event/screen tracking, crash logging, performance monitor, remote config, A/B testing, feature flags. |
-| [`HydraKitTesting`](Sources/HydraKitTesting/README.md) | Mock helpers, spy/stub/fake, snapshot helpers, async XCTest assertions. |
+| [`HydraKitTesting`](Sources/HydraKitTesting/README.md) | Internal test helper target, không expose thành app product từ `1.0.1`. |
 | [`HydraKitDev`](Sources/HydraKitDev/README.md) | Debug-only dev menu, environment switcher, mock data provider, preview container. |
 
 ## Ví Dụ Nhanh

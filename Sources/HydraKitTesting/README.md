@@ -1,6 +1,6 @@
 # HydraKitTesting
 
-Testing target của HydraKit.
+Testing target nội bộ của HydraKit.
 
 ## Mục Đích
 
@@ -8,13 +8,9 @@ Mocks, test doubles, snapshot helpers và async XCTest assertions.
 
 ## Cài Đặt
 
-Chỉ thêm product này vào test target, ví dụ `MyAppTests`. Không thêm `HydraKitTesting` vào app target vì module này dùng `XCTest`.
+Từ `1.0.1`, target này không còn được expose thành public library product để tránh app target link nhầm `XCTest`.
 
-```swift
-.product(name: "HydraKitTesting", package: "HydraKit")
-```
-
-Nếu add bằng Xcode, chọn `HydraKitTesting` ở cột product và gán vào target test, không gán vào target app.
+Không add `HydraKitTesting` vào app target. Nếu app cũ đang link product này từ `1.0.0`, hãy xóa khỏi `Frameworks, Libraries, and Embedded Content`, sau đó update package lên `1.0.1` hoặc mới hơn.
 
 ## Sử Dụng
 

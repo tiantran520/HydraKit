@@ -22,7 +22,6 @@ let package = Package(
         .library(name: "HydraKitMVVM", targets: ["HydraKitMVVM"]),
         .library(name: "HydraKitSecurity", targets: ["HydraKitSecurity"]),
         .library(name: "HydraKitAnalytics", targets: ["HydraKitAnalytics"]),
-        .library(name: "HydraKitTesting", targets: ["HydraKitTesting"]),
         .library(name: "HydraKitDev", targets: ["HydraKitDev"])
     ],
     dependencies: [],
