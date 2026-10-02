@@ -1,5 +1,5 @@
-import IronBitCoreKitNavigation
-import IronBitCoreKitUI
+import HydraKitNavigation
+import HydraKitUI
 import SwiftUI
 
 struct DetailsRoute: Route {
@@ -18,7 +18,7 @@ struct NavigationExample: App {
 }
 
 struct NavigationContentView: View {
-    @StateObject private var router = NavigationRouter()
+    @StateObject private var router = HKNavigationRouter()
 
     var body: some View {
         VStack(spacing: 16) {

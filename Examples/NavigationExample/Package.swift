@@ -17,8 +17,8 @@ let package = Package(
         .executableTarget(
             name: "NavigationExample",
             dependencies: [
-                .product(name: "IronBitCoreKitNavigation", package: "IronBitCoreKit"),
-                .product(name: "IronBitCoreKitUI", package: "IronBitCoreKit")
+                .product(name: "HydraKitNavigation", package: "IronBitCoreKit"),
+                .product(name: "HydraKitUI", package: "IronBitCoreKit")
             ]
         )
     ]

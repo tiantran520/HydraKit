@@ -1,6 +1,6 @@
 # Đóng Góp
 
-Cảm ơn bạn đã quan tâm đến IronBitCoreKit.
+Cảm ơn bạn đã quan tâm đến HydraKit.
 
 ## Trước khi gửi thay đổi
 
@@ -23,6 +23,6 @@ swift test
 Trước khi hoàn tất một thay đổi, hãy kiểm tra:
 
 - `README.md` đã phản ánh module hoặc tính năng mới chưa.
-- `Documentation/IronBitCoreKit.docc/` đã có bài viết hoặc mục liên quan khi cần chưa.
+- `Documentation/HydraKit.docc/` đã có bài viết hoặc mục liên quan khi cần chưa.
 - `CHANGELOG.md` đã ghi nhận thay đổi đáng chú ý chưa.
 - Các ví dụ, lệnh chạy và tên module trong tài liệu còn đúng không.

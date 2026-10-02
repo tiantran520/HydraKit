@@ -17,7 +17,7 @@ let package = Package(
         .executableTarget(
             name: "NetworkExample",
             dependencies: [
-                .product(name: "IronBitCoreKitNetwork", package: "IronBitCoreKit")
+                .product(name: "HydraKitNetwork", package: "IronBitCoreKit")
             ]
         )
     ]

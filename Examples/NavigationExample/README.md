@@ -1,6 +1,6 @@
 # NavigationExample
 
-Demo coordinator/router với `IronBitCoreKitNavigation`.
+Demo coordinator/router với `HydraKitNavigation`.
 
 ## Chạy
 
@@ -9,4 +9,4 @@ cd Examples/NavigationExample
 swift run
 ```
 
-Example minh họa cách tạo `Route`, dùng `NavigationRouter` và bọc flow trong SwiftUI.
+Example minh họa cách tạo `Route`, dùng `HKNavigationRouter` và bọc flow trong SwiftUI.

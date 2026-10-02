@@ -1,5 +1,5 @@
 import Foundation
-import IronBitCoreKitNetwork
+import HydraKitNetwork
 
 struct UserDTO: Codable {
     let id: Int
@@ -9,8 +9,8 @@ struct UserDTO: Codable {
 @main
 struct NetworkExample {
     static func main() async throws {
-        // Stub JSON giúp demo chạy không phụ thuộc internet.
-        let client = MockNetworkClient()
+        // HKStub JSON giúp demo chạy không phụ thuộc internet.
+        let client = HKMockNetworkClient()
         try client.enqueue(.json(UserDTO(id: 1, name: "IronBit")))
 
         let request = URLRequest(url: URL(string: "https://api.example.com/users/1")!)
@@ -20,8 +20,8 @@ struct NetworkExample {
         print("Loaded user:", user.name)
         print("HTTP status:", response.status.rawValue)
 
-        // App thật có thể thay MockNetworkClient bằng URLSessionNetworkClient:
-        // let realClient = URLSessionNetworkClient()
+        // App thật có thể thay HKMockNetworkClient bằng HKURLSessionNetworkClient:
+        // let realClient = HKURLSessionNetworkClient()
         // let realResponse = try await realClient.data(for: request)
     }
 }

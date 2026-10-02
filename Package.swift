@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "IronBitCoreKit",
+    name: "HydraKit",
     platforms: [
         .iOS(.v17),
         .macOS(.v14),
@@ -12,111 +12,111 @@ let package = Package(
         .visionOS(.v1)
     ],
     products: [
-        .library(name: "IronBitCoreKit", targets: ["IronBitCoreKit"]),
-        .library(name: "IronBitCoreKitUI", targets: ["IronBitCoreKitUI"]),
-        .library(name: "IronBitCoreKitNavigation", targets: ["IronBitCoreKitNavigation"]),
-        .library(name: "IronBitCoreKitNetwork", targets: ["IronBitCoreKitNetwork"]),
-        .library(name: "IronBitCoreKitStorage", targets: ["IronBitCoreKitStorage"]),
-        .library(name: "IronBitCoreKitDomain", targets: ["IronBitCoreKitDomain"]),
-        .library(name: "IronBitCoreKitRepository", targets: ["IronBitCoreKitRepository"]),
-        .library(name: "IronBitCoreKitMVVM", targets: ["IronBitCoreKitMVVM"]),
-        .library(name: "IronBitCoreKitSecurity", targets: ["IronBitCoreKitSecurity"]),
-        .library(name: "IronBitCoreKitAnalytics", targets: ["IronBitCoreKitAnalytics"]),
-        .library(name: "IronBitCoreKitTesting", targets: ["IronBitCoreKitTesting"]),
-        .library(name: "IronBitCoreKitDev", targets: ["IronBitCoreKitDev"])
+        .library(name: "HydraKit", targets: ["HydraKit"]),
+        .library(name: "HydraKitUI", targets: ["HydraKitUI"]),
+        .library(name: "HydraKitNavigation", targets: ["HydraKitNavigation"]),
+        .library(name: "HydraKitNetwork", targets: ["HydraKitNetwork"]),
+        .library(name: "HydraKitStorage", targets: ["HydraKitStorage"]),
+        .library(name: "HydraKitDomain", targets: ["HydraKitDomain"]),
+        .library(name: "HydraKitRepository", targets: ["HydraKitRepository"]),
+        .library(name: "HydraKitMVVM", targets: ["HydraKitMVVM"]),
+        .library(name: "HydraKitSecurity", targets: ["HydraKitSecurity"]),
+        .library(name: "HydraKitAnalytics", targets: ["HydraKitAnalytics"]),
+        .library(name: "HydraKitTesting", targets: ["HydraKitTesting"]),
+        .library(name: "HydraKitDev", targets: ["HydraKitDev"])
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "IronBitCoreKit",
+            name: "HydraKit",
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitUI",
-            dependencies: ["IronBitCoreKit"],
+            name: "HydraKitUI",
+            dependencies: ["HydraKit"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitNavigation",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitUI"],
+            name: "HydraKitNavigation",
+            dependencies: ["HydraKit", "HydraKitUI"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitNetwork",
-            dependencies: ["IronBitCoreKit"],
+            name: "HydraKitNetwork",
+            dependencies: ["HydraKit"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitStorage",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitSecurity"],
+            name: "HydraKitStorage",
+            dependencies: ["HydraKit", "HydraKitSecurity"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitDomain",
-            dependencies: ["IronBitCoreKit"],
+            name: "HydraKitDomain",
+            dependencies: ["HydraKit"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitRepository",
+            name: "HydraKitRepository",
             dependencies: [
-                "IronBitCoreKitDomain",
-                "IronBitCoreKitNetwork",
-                "IronBitCoreKitStorage"
+                "HydraKitDomain",
+                "HydraKitNetwork",
+                "HydraKitStorage"
             ],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitMVVM",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitDomain"],
+            name: "HydraKitMVVM",
+            dependencies: ["HydraKit", "HydraKitDomain"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitSecurity",
-            dependencies: ["IronBitCoreKit"],
+            name: "HydraKitSecurity",
+            dependencies: ["HydraKit"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitAnalytics",
-            dependencies: ["IronBitCoreKit", "IronBitCoreKitNetwork"],
+            name: "HydraKitAnalytics",
+            dependencies: ["HydraKit", "HydraKitNetwork"],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitTesting",
+            name: "HydraKitTesting",
             dependencies: [
-                "IronBitCoreKit",
-                "IronBitCoreKitDomain",
-                "IronBitCoreKitNetwork",
-                "IronBitCoreKitStorage",
-                "IronBitCoreKitRepository",
-                "IronBitCoreKitMVVM"
+                "HydraKit",
+                "HydraKitDomain",
+                "HydraKitNetwork",
+                "HydraKitStorage",
+                "HydraKitRepository",
+                "HydraKitMVVM"
             ],
             exclude: ["README.md"]
         ),
         .target(
-            name: "IronBitCoreKitDev",
+            name: "HydraKitDev",
             dependencies: [
-                "IronBitCoreKit",
-                "IronBitCoreKitUI",
-                "IronBitCoreKitNavigation",
-                "IronBitCoreKitNetwork",
-                "IronBitCoreKitStorage",
-                "IronBitCoreKitRepository",
-                "IronBitCoreKitMVVM",
-                "IronBitCoreKitAnalytics"
+                "HydraKit",
+                "HydraKitUI",
+                "HydraKitNavigation",
+                "HydraKitNetwork",
+                "HydraKitStorage",
+                "HydraKitRepository",
+                "HydraKitMVVM",
+                "HydraKitAnalytics"
             ],
             exclude: ["README.md"]
         ),
-        .testTarget(name: "IronBitCoreKitTests", dependencies: ["IronBitCoreKit"]),
-        .testTarget(name: "IronBitCoreKitUITests", dependencies: ["IronBitCoreKitUI"]),
-        .testTarget(name: "IronBitCoreKitNavigationTests", dependencies: ["IronBitCoreKitNavigation"]),
-        .testTarget(name: "IronBitCoreKitNetworkTests", dependencies: ["IronBitCoreKitNetwork"]),
-        .testTarget(name: "IronBitCoreKitStorageTests", dependencies: ["IronBitCoreKitStorage"]),
-        .testTarget(name: "IronBitCoreKitDomainTests", dependencies: ["IronBitCoreKitDomain"]),
-        .testTarget(name: "IronBitCoreKitRepositoryTests", dependencies: ["IronBitCoreKitRepository"]),
-        .testTarget(name: "IronBitCoreKitMVVMTests", dependencies: ["IronBitCoreKitMVVM"]),
-        .testTarget(name: "IronBitCoreKitSecurityTests", dependencies: ["IronBitCoreKitSecurity"]),
-        .testTarget(name: "IronBitCoreKitAnalyticsTests", dependencies: ["IronBitCoreKitAnalytics"]),
-        .testTarget(name: "IronBitCoreKitTestingTests", dependencies: ["IronBitCoreKitTesting"]),
-        .testTarget(name: "IronBitCoreKitDevTests", dependencies: ["IronBitCoreKitDev"])
+        .testTarget(name: "HydraKitTests", dependencies: ["HydraKit"]),
+        .testTarget(name: "HydraKitUITests", dependencies: ["HydraKitUI"]),
+        .testTarget(name: "HydraKitNavigationTests", dependencies: ["HydraKitNavigation"]),
+        .testTarget(name: "HydraKitNetworkTests", dependencies: ["HydraKitNetwork"]),
+        .testTarget(name: "HydraKitStorageTests", dependencies: ["HydraKitStorage"]),
+        .testTarget(name: "HydraKitDomainTests", dependencies: ["HydraKitDomain"]),
+        .testTarget(name: "HydraKitRepositoryTests", dependencies: ["HydraKitRepository"]),
+        .testTarget(name: "HydraKitMVVMTests", dependencies: ["HydraKitMVVM"]),
+        .testTarget(name: "HydraKitSecurityTests", dependencies: ["HydraKitSecurity"]),
+        .testTarget(name: "HydraKitAnalyticsTests", dependencies: ["HydraKitAnalytics"]),
+        .testTarget(name: "HydraKitTestingTests", dependencies: ["HydraKitTesting"]),
+        .testTarget(name: "HydraKitDevTests", dependencies: ["HydraKitDev"])
     ]
 )

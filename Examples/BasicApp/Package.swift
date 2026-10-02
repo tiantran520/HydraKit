@@ -17,7 +17,7 @@ let package = Package(
         .executableTarget(
             name: "BasicApp",
             dependencies: [
-                .product(name: "IronBitCoreKitUI", package: "IronBitCoreKit")
+                .product(name: "HydraKitUI", package: "IronBitCoreKit")
             ]
         )
     ]

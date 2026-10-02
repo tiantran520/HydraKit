@@ -9,4 +9,4 @@ cd Examples/FullStackExample
 swift run
 ```
 
-Example dùng `MockRepository` để mô phỏng data layer, `BaseViewModel` để xử lý action/state, và `NavigationRouter` để minh họa điều hướng.
+Example dùng `HKMockRepository` để mô phỏng data layer, `HKBaseViewModel` để xử lý action/state, và `HKNavigationRouter` để minh họa điều hướng.

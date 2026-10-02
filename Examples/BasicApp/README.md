@@ -1,6 +1,6 @@
 # BasicApp
 
-Demo SwiftUI cơ bản cho `IronBitCoreKitUI`.
+Demo SwiftUI cơ bản cho `HydraKitUI`.
 
 ## Chạy
 

@@ -1,6 +1,6 @@
 # NetworkExample
 
-Demo gọi API với `IronBitCoreKitNetwork`.
+Demo gọi API với `HydraKitNetwork`.
 
 ## Chạy
 
@@ -9,4 +9,4 @@ cd Examples/NetworkExample
 swift run
 ```
 
-Example dùng `MockNetworkClient` để chạy ổn định không cần internet. Khi đưa vào app thật, thay bằng `URLSessionNetworkClient`.
+Example dùng `HKMockNetworkClient` để chạy ổn định không cần internet. Khi đưa vào app thật, thay bằng `HKURLSessionNetworkClient`.

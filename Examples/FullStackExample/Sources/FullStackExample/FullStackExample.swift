@@ -1,8 +1,8 @@
 import Foundation
-import IronBitCoreKitMVVM
-import IronBitCoreKitNavigation
-import IronBitCoreKitRepository
-import IronBitCoreKitUI
+import HydraKitMVVM
+import HydraKitNavigation
+import HydraKitRepository
+import HydraKitUI
 import SwiftUI
 
 struct Todo: Codable, Identifiable, Sendable, Hashable {
@@ -22,12 +22,12 @@ struct TodoRoute: Route {
 }
 
 @MainActor
-final class HomeViewModel: BaseViewModel<HomeAction> {
-    let state = StateContainer<[Todo]>()
-    private let repository: MockRepository<UUID, Todo>
-    private let router: NavigationRouter
+final class HomeViewModel: HKBaseViewModel<HomeAction> {
+    let state = HKStateContainer<[Todo]>()
+    private let repository: HKMockRepository<UUID, Todo>
+    private let router: HKNavigationRouter
 
-    init(repository: MockRepository<UUID, Todo>, router: NavigationRouter) {
+    init(repository: HKMockRepository<UUID, Todo>, router: HKNavigationRouter) {
         self.repository = repository
         self.router = router
         super.init()
@@ -53,7 +53,7 @@ final class HomeViewModel: BaseViewModel<HomeAction> {
                 state.setError(error)
             }
         }
-        store(CancellableTask(task))
+        store(HKCancellableTask(task))
     }
 }
 
@@ -66,8 +66,8 @@ struct FullStackExample: App {
                 Todo(id: UUID(), title: "Gọi Repository"),
                 Todo(id: UUID(), title: "Điều hướng")
             ]
-            let repository = MockRepository(values: todos, idProvider: \.id)
-            let router = NavigationRouter()
+            let repository = HKMockRepository(values: todos, idProvider: \.id)
+            let router = HKNavigationRouter()
             let viewModel = HomeViewModel(repository: repository, router: router)
 
             FullStackContentView(viewModel: viewModel, router: router)
@@ -78,10 +78,10 @@ struct FullStackExample: App {
 
 struct FullStackContentView: View {
     @StateObject var viewModel: HomeViewModel
-    @StateObject var router: NavigationRouter
-    @ObservedObject private var state: StateContainer<[Todo]>
+    @StateObject var router: HKNavigationRouter
+    @ObservedObject private var state: HKStateContainer<[Todo]>
 
-    init(viewModel: HomeViewModel, router: NavigationRouter) {
+    init(viewModel: HomeViewModel, router: HKNavigationRouter) {
         _viewModel = StateObject(wrappedValue: viewModel)
         _router = StateObject(wrappedValue: router)
         self.state = viewModel.state
@@ -114,7 +114,7 @@ struct FullStackContentView: View {
         }
     }
 
-    private func contentState(from state: ViewState<[Todo]>) -> ContentState<[Todo]> {
+    private func contentState(from state: HKViewState<[Todo]>) -> HKContentState<[Todo]> {
         switch state {
         case .idle, .loading:
             return .loading

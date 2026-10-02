@@ -1,6 +1,6 @@
-# IronBitCoreKit
+# HydraKit
 
-IronBitCoreKit là Swift Package đa nền tảng dành cho ứng dụng Apple, được thiết kế theo hướng module hóa, dễ kiểm thử và dễ mở rộng.
+HydraKit là Swift Package đa nền tảng dành cho ứng dụng Apple, được thiết kế theo hướng module hóa, dễ kiểm thử và dễ mở rộng.
 
 Package cung cấp các lớp nền tảng thường gặp trong một app hiện đại: core utilities, UI component library, navigation, networking, storage, domain, repository, MVVM, security, analytics, testing và dev tools.
 
@@ -33,11 +33,11 @@ git@github.com:tiantran520/IronBitCoreKit.git
 
 4. Chọn dependency rule phù hợp. Trong giai đoạn đang phát triển, dùng `Branch` là `main`. Không chọn `Up to Next Major Version` nếu repository chưa có Git tag release như `1.0.0`.
 5. Chọn target app cần sử dụng package.
-6. Tick các product cần add, ví dụ: `IronBitCoreKit`, `IronBitCoreKitUI`, `IronBitCoreKitNetwork`, `IronBitCoreKitNavigation`, `IronBitCoreKitStorage`.
+6. Tick các product cần add, ví dụ: `HydraKit`, `HydraKitUI`, `HydraKitNetwork`, `HydraKitNavigation`, `HydraKitStorage`.
 
 Sau khi Xcode resolve xong, import module cần dùng trong source code.
 
-Lưu ý: không add `IronBitCoreKitTesting` vào app target. Product này dùng `XCTest`, chỉ add vào test target như `MyAppTests`.
+Lưu ý: không add `HydraKitTesting` vào app target. Product này dùng `XCTest`, chỉ add vào test target như `MyAppTests`.
 
 ### Cài Bằng Swift Package Manager
 
@@ -55,9 +55,9 @@ Sau đó khai báo product cần dùng trong target:
 .target(
     name: "MyApp",
     dependencies: [
-        .product(name: "IronBitCoreKit", package: "IronBitCoreKit"),
-        .product(name: "IronBitCoreKitUI", package: "IronBitCoreKit"),
-        .product(name: "IronBitCoreKitNetwork", package: "IronBitCoreKit")
+        .product(name: "HydraKit", package: "IronBitCoreKit"),
+        .product(name: "HydraKitUI", package: "IronBitCoreKit"),
+        .product(name: "HydraKitNetwork", package: "IronBitCoreKit")
     ]
 )
 ```
@@ -67,7 +67,7 @@ Sau đó khai báo product cần dùng trong target:
 Nếu Xcode báo lỗi tương tự:
 
 ```text
-Failed to resolve dependencies because no versions of 'ironbitcorekit' match the requirement 1.0.0..<2.0.0
+Failed to resolve dependencies because no versions of 'hydrakit' match the requirement 1.0.0..<2.0.0
 ```
 
 Nguyên nhân là Xcode đang dùng rule `Up to Next Major Version` với version `1.0.0`, nhưng repository chưa có Git tag `1.0.0`.
@@ -99,49 +99,49 @@ Could not find or use auto-linked framework 'XCTest'
 Undefined symbols for architecture arm64: XCTest.XCTFail
 ```
 
-Nguyên nhân thường là app target đang link nhầm `IronBitCoreKitTesting`. Module này dùng `XCTest`, nên chỉ dành cho test target.
+Nguyên nhân thường là app target đang link nhầm `HydraKitTesting`. Module này dùng `XCTest`, nên chỉ dành cho test target.
 
 Cách xử lý trong Xcode:
 
 1. Chọn project app.
 2. Chọn app target, ví dụ `MyApp`.
 3. Vào `General` > `Frameworks, Libraries, and Embedded Content`.
-4. Xóa `IronBitCoreKitTesting` khỏi app target nếu có.
+4. Xóa `HydraKitTesting` khỏi app target nếu có.
 5. Chọn test target, ví dụ `MyAppTests`.
-6. Add `IronBitCoreKitTesting` vào test target nếu cần dùng mock, spy, stub, fake hoặc async assertions.
+6. Add `HydraKitTesting` vào test target nếu cần dùng mock, spy, stub, fake hoặc async assertions.
 7. Chọn `Product` > `Clean Build Folder`, rồi build lại.
 
 ### Chọn Product Theo Nhu Cầu
 
 Bạn không cần add toàn bộ package nếu app chỉ dùng một phần. Nên chọn module theo tính năng:
 
-- Dùng utilities, logging, DI: `IronBitCoreKit`
-- Dùng SwiftUI component/theme: `IronBitCoreKitUI`
-- Dùng API client/cache/interceptor: `IronBitCoreKitNetwork`
-- Dùng coordinator/router/deep link: `IronBitCoreKitNavigation`
-- Dùng UserDefaults/Keychain/File/CoreData/SwiftData/cache: `IronBitCoreKitStorage`
-- Dùng entity/value object/use case: `IronBitCoreKitDomain`
-- Dùng repository pattern: `IronBitCoreKitRepository`
-- Dùng ViewModel/ViewState/effect/binding: `IronBitCoreKitMVVM`
-- Dùng auth/OAuth/biometric/session/crypto: `IronBitCoreKitSecurity`
-- Dùng analytics/feature flag/remote config: `IronBitCoreKitAnalytics`
-- Dùng mock, spy, stub, fake, async assertions trong test target: `IronBitCoreKitTesting`
-- Dùng dev menu và environment switcher trong Debug: `IronBitCoreKitDev`
+- Dùng utilities, logging, DI: `HydraKit`
+- Dùng SwiftUI component/theme: `HydraKitUI`
+- Dùng API client/cache/interceptor: `HydraKitNetwork`
+- Dùng coordinator/router/deep link: `HydraKitNavigation`
+- Dùng UserDefaults/Keychain/File/CoreData/SwiftData/cache: `HydraKitStorage`
+- Dùng entity/value object/use case: `HydraKitDomain`
+- Dùng repository pattern: `HydraKitRepository`
+- Dùng ViewModel/HKViewState/effect/binding: `HydraKitMVVM`
+- Dùng auth/OAuth/biometric/session/crypto: `HydraKitSecurity`
+- Dùng analytics/feature flag/remote config: `HydraKitAnalytics`
+- Dùng mock, spy, stub, fake, async assertions trong test target: `HydraKitTesting`
+- Dùng dev menu và environment switcher trong Debug: `HydraKitDev`
 
 ### Import Vào Code
 
 Import module tương ứng với product đã add:
 
 ```swift
-import IronBitCoreKit
-import IronBitCoreKitUI
-import IronBitCoreKitNetwork
+import HydraKit
+import HydraKitUI
+import HydraKitNetwork
 ```
 
 Ví dụ một file SwiftUI dùng UI module:
 
 ```swift
-import IronBitCoreKitUI
+import HydraKitUI
 import SwiftUI
 
 struct ContentView: View {
@@ -162,31 +162,31 @@ Dùng các link dưới đây để đi thẳng tới hướng dẫn của từn
 
 | Target | Tài liệu | Source |
 | --- | --- | --- |
-| `IronBitCoreKit` | [README](Sources/IronBitCoreKit/README.md) | [Sources/IronBitCoreKit](Sources/IronBitCoreKit/) |
-| `IronBitCoreKitUI` | [README](Sources/IronBitCoreKitUI/README.md) | [Sources/IronBitCoreKitUI](Sources/IronBitCoreKitUI/) |
-| `IronBitCoreKitNavigation` | [README](Sources/IronBitCoreKitNavigation/README.md) | [Sources/IronBitCoreKitNavigation](Sources/IronBitCoreKitNavigation/) |
-| `IronBitCoreKitNetwork` | [README](Sources/IronBitCoreKitNetwork/README.md) | [Sources/IronBitCoreKitNetwork](Sources/IronBitCoreKitNetwork/) |
-| `IronBitCoreKitStorage` | [README](Sources/IronBitCoreKitStorage/README.md) | [Sources/IronBitCoreKitStorage](Sources/IronBitCoreKitStorage/) |
-| `IronBitCoreKitDomain` | [README](Sources/IronBitCoreKitDomain/README.md) | [Sources/IronBitCoreKitDomain](Sources/IronBitCoreKitDomain/) |
-| `IronBitCoreKitRepository` | [README](Sources/IronBitCoreKitRepository/README.md) | [Sources/IronBitCoreKitRepository](Sources/IronBitCoreKitRepository/) |
-| `IronBitCoreKitMVVM` | [README](Sources/IronBitCoreKitMVVM/README.md) | [Sources/IronBitCoreKitMVVM](Sources/IronBitCoreKitMVVM/) |
-| `IronBitCoreKitSecurity` | [README](Sources/IronBitCoreKitSecurity/README.md) | [Sources/IronBitCoreKitSecurity](Sources/IronBitCoreKitSecurity/) |
-| `IronBitCoreKitAnalytics` | [README](Sources/IronBitCoreKitAnalytics/README.md) | [Sources/IronBitCoreKitAnalytics](Sources/IronBitCoreKitAnalytics/) |
-| `IronBitCoreKitTesting` | [README](Sources/IronBitCoreKitTesting/README.md) | [Sources/IronBitCoreKitTesting](Sources/IronBitCoreKitTesting/) |
-| `IronBitCoreKitDev` | [README](Sources/IronBitCoreKitDev/README.md) | [Sources/IronBitCoreKitDev](Sources/IronBitCoreKitDev/) |
+| `HydraKit` | [README](Sources/HydraKit/README.md) | [Sources/HydraKit](Sources/HydraKit/) |
+| `HydraKitUI` | [README](Sources/HydraKitUI/README.md) | [Sources/HydraKitUI](Sources/HydraKitUI/) |
+| `HydraKitNavigation` | [README](Sources/HydraKitNavigation/README.md) | [Sources/HydraKitNavigation](Sources/HydraKitNavigation/) |
+| `HydraKitNetwork` | [README](Sources/HydraKitNetwork/README.md) | [Sources/HydraKitNetwork](Sources/HydraKitNetwork/) |
+| `HydraKitStorage` | [README](Sources/HydraKitStorage/README.md) | [Sources/HydraKitStorage](Sources/HydraKitStorage/) |
+| `HydraKitDomain` | [README](Sources/HydraKitDomain/README.md) | [Sources/HydraKitDomain](Sources/HydraKitDomain/) |
+| `HydraKitRepository` | [README](Sources/HydraKitRepository/README.md) | [Sources/HydraKitRepository](Sources/HydraKitRepository/) |
+| `HydraKitMVVM` | [README](Sources/HydraKitMVVM/README.md) | [Sources/HydraKitMVVM](Sources/HydraKitMVVM/) |
+| `HydraKitSecurity` | [README](Sources/HydraKitSecurity/README.md) | [Sources/HydraKitSecurity](Sources/HydraKitSecurity/) |
+| `HydraKitAnalytics` | [README](Sources/HydraKitAnalytics/README.md) | [Sources/HydraKitAnalytics](Sources/HydraKitAnalytics/) |
+| `HydraKitTesting` | [README](Sources/HydraKitTesting/README.md) | [Sources/HydraKitTesting](Sources/HydraKitTesting/) |
+| `HydraKitDev` | [README](Sources/HydraKitDev/README.md) | [Sources/HydraKitDev](Sources/HydraKitDev/) |
 
 ### DocC Articles
 
 | Chủ đề | Link |
 | --- | --- |
-| Landing page | [Documentation/IronBitCoreKit.docc/IronBitCoreKit.md](Documentation/IronBitCoreKit.docc/IronBitCoreKit.md) |
-| Bắt đầu sử dụng | [Documentation/IronBitCoreKit.docc/GettingStarted.md](Documentation/IronBitCoreKit.docc/GettingStarted.md) |
-| Kiến trúc package | [Documentation/IronBitCoreKit.docc/Architecture.md](Documentation/IronBitCoreKit.docc/Architecture.md) |
-| Dependency Injection | [Documentation/IronBitCoreKit.docc/Articles/DependencyInjection.md](Documentation/IronBitCoreKit.docc/Articles/DependencyInjection.md) |
-| Networking | [Documentation/IronBitCoreKit.docc/Articles/Networking.md](Documentation/IronBitCoreKit.docc/Articles/Networking.md) |
-| Navigation | [Documentation/IronBitCoreKit.docc/Articles/Navigation.md](Documentation/IronBitCoreKit.docc/Articles/Navigation.md) |
-| Theming | [Documentation/IronBitCoreKit.docc/Articles/Theming.md](Documentation/IronBitCoreKit.docc/Articles/Theming.md) |
-| Testing | [Documentation/IronBitCoreKit.docc/Articles/Testing.md](Documentation/IronBitCoreKit.docc/Articles/Testing.md) |
+| Landing page | [Documentation/HydraKit.docc/HydraKit.md](Documentation/HydraKit.docc/HydraKit.md) |
+| Bắt đầu sử dụng | [Documentation/HydraKit.docc/GettingStarted.md](Documentation/HydraKit.docc/GettingStarted.md) |
+| Kiến trúc package | [Documentation/HydraKit.docc/Architecture.md](Documentation/HydraKit.docc/Architecture.md) |
+| Dependency Injection | [Documentation/HydraKit.docc/Articles/DependencyInjection.md](Documentation/HydraKit.docc/Articles/DependencyInjection.md) |
+| Networking | [Documentation/HydraKit.docc/Articles/Networking.md](Documentation/HydraKit.docc/Articles/Networking.md) |
+| Navigation | [Documentation/HydraKit.docc/Articles/Navigation.md](Documentation/HydraKit.docc/Articles/Navigation.md) |
+| Theming | [Documentation/HydraKit.docc/Articles/Theming.md](Documentation/HydraKit.docc/Articles/Theming.md) |
+| Testing | [Documentation/HydraKit.docc/Articles/Testing.md](Documentation/HydraKit.docc/Articles/Testing.md) |
 
 ### Examples
 
@@ -210,31 +210,31 @@ Dùng các link dưới đây để đi thẳng tới hướng dẫn của từn
 
 | Target | Mục đích |
 | --- | --- |
-| [`IronBitCoreKit`](Sources/IronBitCoreKit/README.md) | Core utilities, extensions, logging, error handling, dependency injection, concurrency helpers. |
-| [`IronBitCoreKitUI`](Sources/IronBitCoreKitUI/README.md) | Design tokens, theme environment, SwiftUI components, state views, modifiers, layout, forms, media, animation, accessibility, localization, preview helpers. |
-| [`IronBitCoreKitNavigation`](Sources/IronBitCoreKitNavigation/README.md) | Coordinator, route abstraction, router, route registry, deep link, tab coordinator, sheet coordinator, flow coordinator. |
-| [`IronBitCoreKitNetwork`](Sources/IronBitCoreKitNetwork/README.md) | Endpoint, request builder, URLSession client, retry, timeout, interceptor, decoding, cache, reachability, security, mock network client. |
-| [`IronBitCoreKitStorage`](Sources/IronBitCoreKitStorage/README.md) | Storage protocols, type-safe keys, UserDefaults, Keychain, file storage, SwiftData, CoreData, cache. |
-| [`IronBitCoreKitDomain`](Sources/IronBitCoreKitDomain/README.md) | Entity, value object, validation/domain errors, use case abstractions. |
-| [`IronBitCoreKitRepository`](Sources/IronBitCoreKitRepository/README.md) | Readable/writable/streamable repository contracts, DTO mapper, network/local/hybrid repositories, sync strategies, mock repository. |
-| [`IronBitCoreKitMVVM`](Sources/IronBitCoreKitMVVM/README.md) | ViewModel protocol/base class, ViewState, StateContainer, ViewAction dispatcher, binding helpers, effects, cancellable task, preview mock view model. |
-| [`IronBitCoreKitSecurity`](Sources/IronBitCoreKitSecurity/README.md) | Auth token/state/service, OAuth2 + PKCE, biometric auth, session management, auto logout, crypto/hash/random helpers. |
-| [`IronBitCoreKitAnalytics`](Sources/IronBitCoreKitAnalytics/README.md) | Analytics provider/service, event/screen tracking, crash logging, performance monitor, remote config, A/B testing, feature flags. |
-| [`IronBitCoreKitTesting`](Sources/IronBitCoreKitTesting/README.md) | Mock helpers, spy/stub/fake, snapshot helpers, async XCTest assertions. |
-| [`IronBitCoreKitDev`](Sources/IronBitCoreKitDev/README.md) | Debug-only dev menu, environment switcher, mock data provider, preview container. |
+| [`HydraKit`](Sources/HydraKit/README.md) | Core utilities, extensions, logging, error handling, dependency injection, concurrency helpers. |
+| [`HydraKitUI`](Sources/HydraKitUI/README.md) | Design tokens, theme environment, SwiftUI components, state views, modifiers, layout, forms, media, animation, accessibility, localization, preview helpers. |
+| [`HydraKitNavigation`](Sources/HydraKitNavigation/README.md) | Coordinator, route abstraction, router, route registry, deep link, tab coordinator, sheet coordinator, flow coordinator. |
+| [`HydraKitNetwork`](Sources/HydraKitNetwork/README.md) | Endpoint, request builder, URLSession client, retry, timeout, interceptor, decoding, cache, reachability, security, mock network client. |
+| [`HydraKitStorage`](Sources/HydraKitStorage/README.md) | Storage protocols, type-safe keys, UserDefaults, Keychain, file storage, SwiftData, CoreData, cache. |
+| [`HydraKitDomain`](Sources/HydraKitDomain/README.md) | Entity, value object, validation/domain errors, use case abstractions. |
+| [`HydraKitRepository`](Sources/HydraKitRepository/README.md) | Readable/writable/streamable repository contracts, DTO mapper, network/local/hybrid repositories, sync strategies, mock repository. |
+| [`HydraKitMVVM`](Sources/HydraKitMVVM/README.md) | ViewModel protocol/base class, HKViewState, HKStateContainer, ViewAction dispatcher, binding helpers, effects, cancellable task, preview mock view model. |
+| [`HydraKitSecurity`](Sources/HydraKitSecurity/README.md) | Auth token/state/service, OAuth2 + PKCE, biometric auth, session management, auto logout, crypto/hash/random helpers. |
+| [`HydraKitAnalytics`](Sources/HydraKitAnalytics/README.md) | Analytics provider/service, event/screen tracking, crash logging, performance monitor, remote config, A/B testing, feature flags. |
+| [`HydraKitTesting`](Sources/HydraKitTesting/README.md) | Mock helpers, spy/stub/fake, snapshot helpers, async XCTest assertions. |
+| [`HydraKitDev`](Sources/HydraKitDev/README.md) | Debug-only dev menu, environment switcher, mock data provider, preview container. |
 
 ## Ví Dụ Nhanh
 
 ### UI Theme
 
 ```swift
-import IronBitCoreKitUI
+import HydraKitUI
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 16) {
-            IBText("IronBitCoreKit", variant: .title)
+            IBText("HydraKit", variant: .title)
             IBButton("Bắt đầu") {
                 print("Tapped")
             }
@@ -249,9 +249,9 @@ struct ContentView: View {
 
 ```swift
 import Foundation
-import IronBitCoreKitNetwork
+import HydraKitNetwork
 
-let client = URLSessionNetworkClient()
+let client = HKURLSessionNetworkClient()
 let request = URLRequest(url: URL(string: "https://example.com")!)
 let response: Response<Data> = try await client.data(for: request)
 ```
@@ -259,28 +259,28 @@ let response: Response<Data> = try await client.data(for: request)
 ### Navigation
 
 ```swift
-import IronBitCoreKitNavigation
+import HydraKitNavigation
 
 struct HomeRoute: Route {
     let routeIdentifier: RouteIdentifier = "home"
 }
 
-let router = NavigationRouter()
+let router = HKNavigationRouter()
 router.push(HomeRoute())
 ```
 
-### MVVM State
+### MVVM HKState
 
 ```swift
-import IronBitCoreKitMVVM
+import HydraKitMVVM
 
 enum HomeAction: ViewAction {
     case onAppear
 }
 
 @MainActor
-final class HomeViewModel: BaseViewModel<HomeAction> {
-    let state = StateContainer<[String]>()
+final class HomeViewModel: HKBaseViewModel<HomeAction> {
+    let state = HKStateContainer<[String]>()
 
     override func send(_ action: HomeAction) {
         state.setLoaded(["A", "B", "C"])
@@ -308,7 +308,7 @@ swift run
 
 Danh sách example:
 
-- [`Examples/BasicApp`](Examples/BasicApp/README.md): demo UI cơ bản với `IronBitCoreKitUI`.
+- [`Examples/BasicApp`](Examples/BasicApp/README.md): demo UI cơ bản với `HydraKitUI`.
 - [`Examples/NetworkExample`](Examples/NetworkExample/README.md): demo gọi API bằng mock network client.
 - [`Examples/NavigationExample`](Examples/NavigationExample/README.md): demo route/router/coordinator.
 - [`Examples/FullStackExample`](Examples/FullStackExample/README.md): demo MVVM + Repository + Navigation + UI.
@@ -318,18 +318,18 @@ Danh sách example:
 DocC nằm tại:
 
 ```text
-Documentation/IronBitCoreKit.docc/
+Documentation/HydraKit.docc/
 ```
 
 Các bài viết chính:
 
-- [GettingStarted.md](Documentation/IronBitCoreKit.docc/GettingStarted.md)
-- [Architecture.md](Documentation/IronBitCoreKit.docc/Architecture.md)
-- [Articles/DependencyInjection.md](Documentation/IronBitCoreKit.docc/Articles/DependencyInjection.md)
-- [Articles/Networking.md](Documentation/IronBitCoreKit.docc/Articles/Networking.md)
-- [Articles/Navigation.md](Documentation/IronBitCoreKit.docc/Articles/Navigation.md)
-- [Articles/Theming.md](Documentation/IronBitCoreKit.docc/Articles/Theming.md)
-- [Articles/Testing.md](Documentation/IronBitCoreKit.docc/Articles/Testing.md)
+- [GettingStarted.md](Documentation/HydraKit.docc/GettingStarted.md)
+- [Architecture.md](Documentation/HydraKit.docc/Architecture.md)
+- [Articles/DependencyInjection.md](Documentation/HydraKit.docc/Articles/DependencyInjection.md)
+- [Articles/Networking.md](Documentation/HydraKit.docc/Articles/Networking.md)
+- [Articles/Navigation.md](Documentation/HydraKit.docc/Articles/Navigation.md)
+- [Articles/Theming.md](Documentation/HydraKit.docc/Articles/Theming.md)
+- [Articles/Testing.md](Documentation/HydraKit.docc/Articles/Testing.md)
 
 Mỗi target cũng có README riêng tại [`Sources/<TargetName>/README.md`](Sources/).
 
@@ -354,7 +354,7 @@ Package hiện đang ở giai đoạn `0.1.0`, chưa có version public cũ đ�
 Khi có breaking change, hướng dẫn migration sẽ được cập nhật ở:
 
 - `CHANGELOG.md`
-- `Documentation/IronBitCoreKit.docc/Architecture.md`
+- `Documentation/HydraKit.docc/Architecture.md`
 - README của target liên quan trong `Sources/<TargetName>/README.md`
 
 ## Quy Tắc Cập Nhật Tài Liệu
@@ -363,7 +363,7 @@ Mỗi khi tạo module, thư mục, file, API hoặc tính năng mới, cần c�
 
 - `README.md`
 - `CHANGELOG.md`
-- DocC liên quan trong `Documentation/IronBitCoreKit.docc/`
+- DocC liên quan trong `Documentation/HydraKit.docc/`
 - README của target liên quan trong `Sources/<TargetName>/README.md`
 
 Quy tắc này giúp tài liệu luôn phản ánh đúng cấu trúc và khả năng hiện tại của package.

@@ -17,10 +17,10 @@ let package = Package(
         .executableTarget(
             name: "FullStackExample",
             dependencies: [
-                .product(name: "IronBitCoreKitUI", package: "IronBitCoreKit"),
-                .product(name: "IronBitCoreKitMVVM", package: "IronBitCoreKit"),
-                .product(name: "IronBitCoreKitRepository", package: "IronBitCoreKit"),
-                .product(name: "IronBitCoreKitNavigation", package: "IronBitCoreKit")
+                .product(name: "HydraKitUI", package: "IronBitCoreKit"),
+                .product(name: "HydraKitMVVM", package: "IronBitCoreKit"),
+                .product(name: "HydraKitRepository", package: "IronBitCoreKit"),
+                .product(name: "HydraKitNavigation", package: "IronBitCoreKit")
             ]
         )
     ]
