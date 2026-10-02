@@ -17,21 +17,21 @@ struct BasicContentView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            IBText("Hydra Basic App", variant: .title)
+            HKText("Hydra Basic App", variant: .title)
 
-            IBCard(variant: .outlined) {
+            HKCard(variant: .outlined) {
                 VStack(alignment: .leading, spacing: 12) {
-                    IBText("Component demo", variant: .headline)
-                    IBChip("SwiftUI", variant: .soft, isSelected: true)
-                    IBToggle("Bật thông báo", isOn: $notificationsEnabled)
-                    IBButton("Tiếp tục") {
+                    HKText("Component demo", variant: .headline)
+                    HKChip("SwiftUI", variant: .soft, isSelected: true)
+                    HKToggle("Bật thông báo", isOn: $notificationsEnabled)
+                    HKButton("Tiếp tục") {
                         // Đây là nơi app thật gửi ViewAction hoặc điều hướng.
                         print("Continue tapped")
                     }
                 }
             }
 
-            IBProgressView("Đang đồng bộ", variant: .linear(0.65))
+            HKProgressView("Đang đồng bộ", variant: .linear(0.65))
         }
         .padding(24)
         .frame(minWidth: 420, minHeight: 320)

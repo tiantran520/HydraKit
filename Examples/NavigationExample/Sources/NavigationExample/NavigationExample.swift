@@ -22,20 +22,20 @@ struct NavigationContentView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            IBText("Navigation Example", variant: .title)
+            HKText("Navigation Example", variant: .title)
 
-            IBButton("Push Details") {
+            HKButton("Push Details") {
                 // Coordinator thật thường gọi router.push(...) từ ViewModel hoặc flow object.
                 router.push(DetailsRoute(title: "Chi tiết"))
             }
 
-            IBButton("Pop", variant: .secondary) {
+            HKButton("Pop", variant: .secondary) {
                 router.pop()
             }
 
-            IBCard {
+            HKCard {
                 VStack(alignment: .leading) {
-                    IBText("Current path", variant: .headline)
+                    HKText("Current path", variant: .headline)
                     Text(router.path.map(\.routeIdentifier.rawValue).joined(separator: " > "))
                         .font(.caption)
                 }

@@ -28,7 +28,7 @@ public struct FormView<Content: View>: View {
 #Preview {
     @Previewable @State var name = ""
     return FormView(title: "Hồ sơ") {
-        IBTextField("Tên", text: $name)
-        IBButton("Lưu") {}
+        HKTextField("Tên", text: $name)
+        HKButton("Lưu") {}
     }
 }

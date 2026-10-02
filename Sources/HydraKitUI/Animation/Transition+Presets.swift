@@ -2,12 +2,12 @@ import SwiftUI
 
 public extension AnyTransition {
     /// A default fade and scale transition.
-    static var ibFadeScale: AnyTransition {
+    static var hkFadeScale: AnyTransition {
         .opacity.combined(with: .scale(scale: 0.96))
     }
 
     /// A default bottom slide transition.
-    static var ibSlideUp: AnyTransition {
+    static var hkSlideUp: AnyTransition {
         .move(edge: .bottom).combined(with: .opacity)
     }
 }

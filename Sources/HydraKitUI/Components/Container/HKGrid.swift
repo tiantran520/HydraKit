@@ -1,13 +1,13 @@
 import SwiftUI
 
-/// A simple adaptive grid container.
-public struct HKGridLayout<Content: View>: View {
+/// A themed adaptive grid.
+public struct HKGrid<Content: View>: View {
     private let minItemWidth: CGFloat
     private let spacing: CGFloat
     private let content: Content
 
-    /// Creates a grid layout.
-    public init(minItemWidth: CGFloat = 160, spacing: CGFloat = 12, @ViewBuilder content: () -> Content) {
+    /// Creates a grid.
+    public init(minItemWidth: CGFloat = 140, spacing: CGFloat = 12, @ViewBuilder content: () -> Content) {
         self.minItemWidth = minItemWidth
         self.spacing = spacing
         self.content = content()
@@ -19,4 +19,13 @@ public struct HKGridLayout<Content: View>: View {
             content
         }
     }
+}
+
+#Preview {
+    HKGrid {
+        ForEach(0..<4) { index in
+            HKCard { Text("Item \(index)") }
+        }
+    }
+    .padding()
 }

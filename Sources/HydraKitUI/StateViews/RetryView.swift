@@ -26,7 +26,7 @@ public struct RetryView: View {
         VStack(spacing: theme.spacing.lg) {
             ErrorStateView(title: title, message: message)
                 .frame(maxHeight: 220)
-            IBButton(retryTitle, variant: .primary, action: retry)
+            HKButton(retryTitle, variant: .primary, action: retry)
                 .frame(maxWidth: 220)
         }
         .padding(theme.spacing.xl)

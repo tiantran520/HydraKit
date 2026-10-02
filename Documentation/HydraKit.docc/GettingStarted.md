@@ -34,8 +34,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            IBText("Xin chào", variant: .title)
-            IBButton("Tiếp tục") {}
+            HKText("Xin chào", variant: .title)
+            HKButton("Tiếp tục") {}
         }
         .padding()
         .ironBitTheme(DefaultTheme())

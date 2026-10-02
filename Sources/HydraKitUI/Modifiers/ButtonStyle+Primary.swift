@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Primary themed SwiftUI button style.
-public struct IBPrimaryButtonStyle: ButtonStyle {
+public struct HKPrimaryButtonStyle: ButtonStyle {
     @Environment(\.ironBitTheme) private var theme
 
     /// Creates the style.
@@ -22,7 +22,7 @@ public struct IBPrimaryButtonStyle: ButtonStyle {
     }
 }
 
-public extension ButtonStyle where Self == IBPrimaryButtonStyle {
+public extension ButtonStyle where Self == HKPrimaryButtonStyle {
     /// Hydra primary button style.
-    static var ibPrimary: IBPrimaryButtonStyle { IBPrimaryButtonStyle() }
+    static var hkPrimary: HKPrimaryButtonStyle { HKPrimaryButtonStyle() }
 }

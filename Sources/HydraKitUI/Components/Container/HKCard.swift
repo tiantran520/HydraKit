@@ -1,8 +1,8 @@
 import SwiftUI
 
-/// A reusable card styling modifier.
-public struct CardStyle: ViewModifier {
-    /// Card style variants.
+/// A themed card container.
+public struct HKCard<Content: View>: View {
+    /// Visual variants for cards.
     public enum HKVariant: Sendable {
         /// Plain surface.
         case plain
@@ -14,14 +14,16 @@ public struct CardStyle: ViewModifier {
 
     @Environment(\.ironBitTheme) private var theme
     private let variant: HKVariant
+    private let content: Content
 
-    /// Creates a card style modifier.
-    public init(_ variant: HKVariant = .plain) {
+    /// Creates a card.
+    public init(variant: HKVariant = .plain, @ViewBuilder content: () -> Content) {
         self.variant = variant
+        self.content = content()
     }
 
-    /// Applies the card style.
-    public func body(content: Content) -> some View {
+    /// The card body.
+    public var body: some View {
         content
             .padding(theme.spacing.lg)
             .background(theme.colors.surface)
@@ -44,9 +46,9 @@ public struct CardStyle: ViewModifier {
     }
 }
 
-public extension View {
-    /// Applies Hydra card styling.
-    func hkCardStyle(_ variant: CardStyle.HKVariant = .plain) -> some View {
-        modifier(CardStyle(variant))
+#Preview {
+    HKCard(variant: .elevated) {
+        Text("Hydra card")
     }
+    .padding()
 }

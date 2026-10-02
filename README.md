@@ -144,7 +144,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        IBButton("Tiếp tục") {
+        HKButton("Tiếp tục") {
             print("Continue")
         }
         .ironBitTheme(DefaultTheme())
@@ -232,8 +232,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(spacing: 16) {
-            IBText("HydraKit", variant: .title)
-            IBButton("Bắt đầu") {
+            HKText("HydraKit", variant: .title)
+            HKButton("Bắt đầu") {
                 print("Tapped")
             }
         }

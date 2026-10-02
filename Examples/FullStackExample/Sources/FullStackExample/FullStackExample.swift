@@ -89,12 +89,12 @@ struct FullStackContentView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            IBText("Full Stack Example", variant: .title)
+            HKText("Full Stack Example", variant: .title)
 
             ContentStateView(state: contentState(from: state.state), retry: { viewModel.send(.reload) }) { todos in
                 VStack(spacing: 8) {
                     ForEach(todos) { todo in
-                        IBButton(todo.title, variant: .secondary) {
+                        HKButton(todo.title, variant: .secondary) {
                             viewModel.send(.select(todo))
                         }
                     }
@@ -102,7 +102,7 @@ struct FullStackContentView: View {
             }
             .frame(minHeight: 160)
 
-            IBCard {
+            HKCard {
                 Text("Route stack: " + router.path.map(\.routeIdentifier.rawValue).joined(separator: " > "))
                     .font(.caption)
             }
