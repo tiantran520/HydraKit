@@ -11,7 +11,7 @@ Coordinator, route abstraction, router, deep link, tab, sheet và flow coordinat
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitNavigation", package: "IronBitCoreKit")
+.product(name: "HydraKitNavigation", package: "HydraKit")
 ```
 
 ## Sử Dụng

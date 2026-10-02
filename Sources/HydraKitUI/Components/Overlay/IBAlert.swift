@@ -17,7 +17,7 @@ public struct IBAlertState: Identifiable, Sendable {
 }
 
 public extension View {
-    /// Presents a simple IronBit alert.
+    /// Presents a simple Hydra alert.
     func ibAlert(_ state: Binding<IBAlertState?>) -> some View {
         alert(item: state) { alert in
             Alert(

@@ -11,7 +11,7 @@ Extensions, logging, error handling, dependency injection, concurrency và utili
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKit", package: "IronBitCoreKit")
+.product(name: "HydraKit", package: "HydraKit")
 ```
 
 ## Sử Dụng

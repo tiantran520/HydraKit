@@ -18,7 +18,7 @@ Package cung cấp các lớp nền tảng thường gặp trong một app hiệ
 Repository:
 
 ```text
-git@github.com:tiantran520/IronBitCoreKit.git
+git@github.com:tiantran520/HydraKit.git
 ```
 
 ### Cài Bằng Xcode
@@ -28,7 +28,7 @@ git@github.com:tiantran520/IronBitCoreKit.git
 3. Dán URL repository:
 
 ```text
-git@github.com:tiantran520/IronBitCoreKit.git
+git@github.com:tiantran520/HydraKit.git
 ```
 
 4. Chọn dependency rule phù hợp. Trong giai đoạn đang phát triển, dùng `Branch` là `main`. Không chọn `Up to Next Major Version` nếu repository chưa có Git tag release như `1.0.0`.
@@ -45,7 +45,7 @@ Nếu project của bạn là Swift package, thêm dependency vào `Package.swif
 
 ```swift
 dependencies: [
-    .package(url: "git@github.com:tiantran520/IronBitCoreKit.git", branch: "main")
+    .package(url: "git@github.com:tiantran520/HydraKit.git", branch: "main")
 ]
 ```
 
@@ -55,9 +55,9 @@ Sau đó khai báo product cần dùng trong target:
 .target(
     name: "MyApp",
     dependencies: [
-        .product(name: "HydraKit", package: "IronBitCoreKit"),
-        .product(name: "HydraKitUI", package: "IronBitCoreKit"),
-        .product(name: "HydraKitNetwork", package: "IronBitCoreKit")
+        .product(name: "HydraKit", package: "HydraKit"),
+        .product(name: "HydraKitUI", package: "HydraKit"),
+        .product(name: "HydraKitNetwork", package: "HydraKit")
     ]
 )
 ```
@@ -76,7 +76,7 @@ Cách xử lý nhanh trong Xcode:
 
 1. Xóa package dependency vừa add lỗi.
 2. Chọn `File` > `Add Package Dependencies...`.
-3. Dán lại URL `git@github.com:tiantran520/IronBitCoreKit.git`.
+3. Dán lại URL `git@github.com:tiantran520/HydraKit.git`.
 4. Ở `Dependency Rule`, chọn `Branch`.
 5. Nhập branch `main`.
 6. Add lại các product cần dùng.

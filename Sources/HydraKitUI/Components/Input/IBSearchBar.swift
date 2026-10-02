@@ -36,6 +36,6 @@ public struct IBSearchBar: View {
 }
 
 #Preview {
-    @Previewable @State var query = "Iron"
+    @Previewable @State var query = "Hydra"
     return IBSearchBar(text: $query).padding()
 }

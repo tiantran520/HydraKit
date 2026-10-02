@@ -11,7 +11,7 @@ ViewModel, HKViewState, ViewAction, binding helpers, effects và preview mock vi
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitMVVM", package: "IronBitCoreKit")
+.product(name: "HydraKitMVVM", package: "HydraKit")
 ```
 
 ## Sử Dụng

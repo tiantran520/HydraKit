@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Design color tokens used by the default IronBit theme.
+/// Design color tokens used by the default Hydra theme.
 public struct ColorTokens: Sendable {
     /// Brand primary color.
     public let primary: Color

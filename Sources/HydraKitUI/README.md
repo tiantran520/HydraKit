@@ -11,7 +11,7 @@ Design tokens, theme, SwiftUI components, state views, layout, forms, media, ani
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitUI", package: "IronBitCoreKit")
+.product(name: "HydraKitUI", package: "HydraKit")
 ```
 
 ## Sử Dụng

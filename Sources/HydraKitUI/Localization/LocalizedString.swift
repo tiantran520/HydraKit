@@ -20,7 +20,7 @@ public struct LocalizedString: ExpressibleByStringLiteral {
 }
 
 public extension Text {
-    /// Creates text from an IronBit localized string.
+    /// Creates text from an Hydra localized string.
     init(_ localized: LocalizedString) {
         self.init(localized.key)
     }

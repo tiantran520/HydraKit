@@ -11,7 +11,7 @@ Analytics provider/service, event/screen tracking, crash reporting, performance,
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitAnalytics", package: "IronBitCoreKit")
+.product(name: "HydraKitAnalytics", package: "HydraKit")
 ```
 
 ## Sử Dụng

@@ -1,6 +1,6 @@
 import Foundation
 
-/// Corner radius scale used by IronBit UI components.
+/// Corner radius scale used by Hydra UI components.
 public struct RadiusTokens: Sendable {
     /// Small radius.
     public let sm: CGFloat

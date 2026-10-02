@@ -55,7 +55,7 @@ public struct IBTextField: View {
 }
 
 #Preview {
-    @Previewable @State var text = "hello@ironbit.dev"
+    @Previewable @State var text = "hello@hydra.dev"
     return IBTextField("Email", text: $text, state: .success)
         .padding()
 }

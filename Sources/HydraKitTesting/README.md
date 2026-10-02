@@ -11,7 +11,7 @@ Mocks, test doubles, snapshot helpers và async XCTest assertions.
 Chỉ thêm product này vào test target, ví dụ `MyAppTests`. Không thêm `HydraKitTesting` vào app target vì module này dùng `XCTest`.
 
 ```swift
-.product(name: "HydraKitTesting", package: "IronBitCoreKit")
+.product(name: "HydraKitTesting", package: "HydraKit")
 ```
 
 Nếu add bằng Xcode, chọn `HydraKitTesting` ở cột product và gán vào target test, không gán vào target app.

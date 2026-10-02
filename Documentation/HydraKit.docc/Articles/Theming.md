@@ -15,7 +15,7 @@ Target `HydraKitUI` dùng design tokens và `ThemeEnvironment` để theme hóa 
 
 ```swift
 VStack {
-    IBText("IronBit", variant: .title)
+    IBText("Hydra", variant: .title)
     IBButton("Bắt đầu") {}
 }
 .ironBitTheme(DefaultTheme())

@@ -11,7 +11,7 @@ Storage protocols, UserDefaults, Keychain, file storage, SwiftData, CoreData và
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitStorage", package: "IronBitCoreKit")
+.product(name: "HydraKitStorage", package: "HydraKit")
 ```
 
 ## Sử Dụng

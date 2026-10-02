@@ -1,6 +1,6 @@
 import Foundation
 
-/// Spacing scale used by IronBit UI components.
+/// Spacing scale used by Hydra UI components.
 public struct SpacingTokens: Sendable {
     /// Extra small spacing.
     public let xs: CGFloat

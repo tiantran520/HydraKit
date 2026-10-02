@@ -11,7 +11,7 @@ Readable/writable/streamable repositories, DTO mapper, network/local/hybrid stra
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitRepository", package: "IronBitCoreKit")
+.product(name: "HydraKitRepository", package: "HydraKit")
 ```
 
 ## Sử Dụng

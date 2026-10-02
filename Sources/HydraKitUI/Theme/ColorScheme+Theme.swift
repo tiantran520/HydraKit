@@ -2,7 +2,7 @@ import SwiftUI
 
 public extension ColorScheme {
     /// Returns a default theme adjusted for the color scheme.
-    var defaultIronBitTheme: DefaultTheme {
+    var defaultHydraTheme: DefaultTheme {
         switch self {
         case .dark:
             DefaultTheme(

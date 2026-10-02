@@ -11,7 +11,7 @@ Debug-only dev menu, environment switcher, mock data provider và preview contai
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitDev", package: "IronBitCoreKit")
+.product(name: "HydraKitDev", package: "HydraKit")
 ```
 
 ## Sử Dụng

@@ -23,6 +23,6 @@ public struct IBPrimaryButtonStyle: ButtonStyle {
 }
 
 public extension ButtonStyle where Self == IBPrimaryButtonStyle {
-    /// IronBit primary button style.
+    /// Hydra primary button style.
     static var ibPrimary: IBPrimaryButtonStyle { IBPrimaryButtonStyle() }
 }

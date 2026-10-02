@@ -13,16 +13,16 @@ Trong `Package.swift` của app:
 
 ```swift
 dependencies: [
-    .package(url: "git@github.com:tiantran520/IronBitCoreKit.git", branch: "main")
+    .package(url: "git@github.com:tiantran520/HydraKit.git", branch: "main")
 ]
 ```
 
 Chọn product theo nhu cầu:
 
 ```swift
-.product(name: "HydraKitUI", package: "IronBitCoreKit"),
-.product(name: "HydraKitNetwork", package: "IronBitCoreKit"),
-.product(name: "HydraKitMVVM", package: "IronBitCoreKit")
+.product(name: "HydraKitUI", package: "HydraKit"),
+.product(name: "HydraKitNetwork", package: "HydraKit"),
+.product(name: "HydraKitMVVM", package: "HydraKit")
 ```
 
 ## Dùng UI Theme

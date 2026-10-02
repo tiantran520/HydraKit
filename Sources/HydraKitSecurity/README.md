@@ -11,7 +11,7 @@ Auth, OAuth2/PKCE, biometric auth, session management, auto logout và crypto he
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitSecurity", package: "IronBitCoreKit")
+.product(name: "HydraKitSecurity", package: "HydraKit")
 ```
 
 ## Sử Dụng

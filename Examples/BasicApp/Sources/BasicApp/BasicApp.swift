@@ -17,7 +17,7 @@ struct BasicContentView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            IBText("IronBit Basic App", variant: .title)
+            IBText("Hydra Basic App", variant: .title)
 
             IBCard(variant: .outlined) {
                 VStack(alignment: .leading, spacing: 12) {

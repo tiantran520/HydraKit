@@ -48,7 +48,7 @@ public struct IBCard<Content: View>: View {
 
 #Preview {
     IBCard(variant: .elevated) {
-        Text("IronBit card")
+        Text("Hydra card")
     }
     .padding()
 }

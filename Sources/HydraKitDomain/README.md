@@ -11,7 +11,7 @@ Entity, value object, domain errors, validation errors và use case abstractions
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitDomain", package: "IronBitCoreKit")
+.product(name: "HydraKitDomain", package: "HydraKit")
 ```
 
 ## Sử Dụng

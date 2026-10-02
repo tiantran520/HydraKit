@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// A theme that provides design tokens for IronBit UI components.
+/// A theme that provides design tokens for Hydra UI components.
 public protocol Theme: Sendable {
     /// Color tokens.
     var colors: ColorTokens { get }

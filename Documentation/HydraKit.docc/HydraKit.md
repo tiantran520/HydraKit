@@ -37,7 +37,7 @@ Package gom các lớp nền tảng thường gặp trong một app hiện đạ
 Thêm package vào Xcode hoặc `Package.swift`:
 
 ```swift
-.package(url: "git@github.com:tiantran520/IronBitCoreKit.git", branch: "main")
+.package(url: "git@github.com:tiantran520/HydraKit.git", branch: "main")
 ```
 
 Sau đó import target cần dùng:

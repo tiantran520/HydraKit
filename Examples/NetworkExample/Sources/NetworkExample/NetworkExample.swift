@@ -11,7 +11,7 @@ struct NetworkExample {
     static func main() async throws {
         // HKStub JSON giúp demo chạy không phụ thuộc internet.
         let client = HKMockNetworkClient()
-        try client.enqueue(.json(UserDTO(id: 1, name: "IronBit")))
+        try client.enqueue(.json(UserDTO(id: 1, name: "Hydra")))
 
         let request = URLRequest(url: URL(string: "https://api.example.com/users/1")!)
         let response = try await client.data(for: request)

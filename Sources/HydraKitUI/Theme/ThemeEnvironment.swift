@@ -5,7 +5,7 @@ private struct ThemeEnvironmentKey: EnvironmentKey {
 }
 
 public extension EnvironmentValues {
-    /// The current IronBit theme.
+    /// The current Hydra theme.
     var ironBitTheme: any Theme {
         get { self[ThemeEnvironmentKey.self] }
         set { self[ThemeEnvironmentKey.self] = newValue }
@@ -13,7 +13,7 @@ public extension EnvironmentValues {
 }
 
 public extension View {
-    /// Sets the IronBit theme for this view hierarchy.
+    /// Sets the Hydra theme for this view hierarchy.
     /// - Parameter theme: The theme to inject.
     /// - Returns: A view with the theme stored in the environment.
     func ironBitTheme(_ theme: any Theme) -> some View {

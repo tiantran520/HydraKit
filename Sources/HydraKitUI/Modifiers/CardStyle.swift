@@ -45,7 +45,7 @@ public struct CardStyle: ViewModifier {
 }
 
 public extension View {
-    /// Applies IronBit card styling.
+    /// Applies Hydra card styling.
     func ibCardStyle(_ variant: CardStyle.HKVariant = .plain) -> some View {
         modifier(CardStyle(variant))
     }

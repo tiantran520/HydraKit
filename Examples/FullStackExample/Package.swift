@@ -11,16 +11,16 @@ let package = Package(
         .executable(name: "FullStackExample", targets: ["FullStackExample"])
     ],
     dependencies: [
-        .package(path: "../..")
+        .package(name: "HydraKit", path: "../..")
     ],
     targets: [
         .executableTarget(
             name: "FullStackExample",
             dependencies: [
-                .product(name: "HydraKitUI", package: "IronBitCoreKit"),
-                .product(name: "HydraKitMVVM", package: "IronBitCoreKit"),
-                .product(name: "HydraKitRepository", package: "IronBitCoreKit"),
-                .product(name: "HydraKitNavigation", package: "IronBitCoreKit")
+                .product(name: "HydraKitUI", package: "HydraKit"),
+                .product(name: "HydraKitMVVM", package: "HydraKit"),
+                .product(name: "HydraKitRepository", package: "HydraKit"),
+                .product(name: "HydraKitNavigation", package: "HydraKit")
             ]
         )
     ]

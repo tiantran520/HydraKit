@@ -55,7 +55,7 @@ final class InterceptorChainTests: XCTestCase {
 
     func testHeaderAndAuthInterceptorsMutateRequest() async throws {
         let chain = HKInterceptorChain(requestInterceptors: [
-            HeaderInterceptor(headers: ["X-App": "IronBit"]),
+            HeaderInterceptor(headers: ["X-App": "Hydra"]),
             AuthInterceptor { "token" }
         ])
 
@@ -63,7 +63,7 @@ final class InterceptorChainTests: XCTestCase {
 
         let intercepted = try await chain.intercept(request)
 
-        XCTAssertEqual(intercepted.value(forHTTPHeaderField: "X-App"), "IronBit")
+        XCTAssertEqual(intercepted.value(forHTTPHeaderField: "X-App"), "Hydra")
         XCTAssertEqual(intercepted.value(forHTTPHeaderField: "Authorization"), "Bearer token")
     }
 }

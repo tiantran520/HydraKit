@@ -11,14 +11,14 @@ let package = Package(
         .executable(name: "NavigationExample", targets: ["NavigationExample"])
     ],
     dependencies: [
-        .package(path: "../..")
+        .package(name: "HydraKit", path: "../..")
     ],
     targets: [
         .executableTarget(
             name: "NavigationExample",
             dependencies: [
-                .product(name: "HydraKitNavigation", package: "IronBitCoreKit"),
-                .product(name: "HydraKitUI", package: "IronBitCoreKit")
+                .product(name: "HydraKitNavigation", package: "HydraKit"),
+                .product(name: "HydraKitUI", package: "HydraKit")
             ]
         )
     ]

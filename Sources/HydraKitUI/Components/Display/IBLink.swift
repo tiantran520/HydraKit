@@ -26,5 +26,5 @@ public struct IBLink: View {
 }
 
 #Preview {
-    IBLink("IronBit", url: URL(string: "https://example.com")!).padding()
+    IBLink("Hydra", url: URL(string: "https://example.com")!).padding()
 }

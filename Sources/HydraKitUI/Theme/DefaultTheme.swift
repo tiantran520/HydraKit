@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The default IronBit UI theme.
+/// The default Hydra UI theme.
 public struct DefaultTheme: Theme {
     /// Color tokens.
     public let colors: ColorTokens

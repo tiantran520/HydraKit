@@ -11,7 +11,7 @@ Endpoint, request builder, URLSession client, retry, interceptor, decoding, cach
 Thêm product tương ứng vào target app hoặc module của bạn:
 
 ```swift
-.product(name: "HydraKitNetwork", package: "IronBitCoreKit")
+.product(name: "HydraKitNetwork", package: "HydraKit")
 ```
 
 ## Sử Dụng
