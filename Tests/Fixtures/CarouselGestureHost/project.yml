@@ -1,0 +1,40 @@
+name: CarouselGestureProbe
+options:
+  bundleIdPrefix: dev.hydrakit.probe
+  deploymentTarget:
+    iOS: '17.0'
+packages:
+  HydraKit:
+    path: ../../..
+targets:
+  CarouselGestureProbe:
+    type: application
+    platform: iOS
+    sources: [App]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        PRODUCT_BUNDLE_IDENTIFIER: dev.hydrakit.probe.carousel
+        CODE_SIGNING_ALLOWED: NO
+    dependencies:
+      - package: HydraKit
+        product: HydraKitUI
+  CarouselGestureTests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_ALLOWED: NO
+        TEST_TARGET_NAME: CarouselGestureProbe
+    dependencies:
+      - target: CarouselGestureProbe
+schemes:
+  CarouselGestureProbe:
+    build:
+      targets:
+        CarouselGestureProbe: all
+    test:
+      targets: [CarouselGestureTests]

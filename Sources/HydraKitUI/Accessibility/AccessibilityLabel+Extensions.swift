@@ -11,3 +11,25 @@ public extension View {
         accessibilityHint(Text(hint))
     }
 }
+
+// An absent component override must preserve labels supplied by the image or an outer modifier.
+extension View {
+    @ViewBuilder
+    func hkOptionalAccessibilityHint(_ hint: Text?) -> some View {
+        if let hint { accessibilityHint(hint) } else { self }
+    }
+
+    @ViewBuilder
+    func hkOptionalAccessibilityValue(_ value: Text?) -> some View {
+        if let value { accessibilityValue(value) } else { self }
+    }
+
+    @ViewBuilder
+    func hkOptionalAccessibilityLabel(_ label: Text?) -> some View {
+        if let label {
+            accessibilityLabel(label)
+        } else {
+            self
+        }
+    }
+}

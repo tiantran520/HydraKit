@@ -1,25 +1,70 @@
 # HydraKitTesting
 
-Testing target nội bộ của HydraKit.
+## Cài đặt
 
-## Mục Đích
+Target nội bộ dành cho test trong repository; không có public product.
 
-Mocks, test doubles, snapshot helpers và async XCTest assertions.
+Các helper XCTest **nội bộ** cho test của repository HydraKit. Package.swift hiện có target này nhưng không expose library product; package app bên ngoài không thể thêm `.product(name: "HydraKitTesting", ...)`.
 
-## Cài Đặt
+## Dùng trong repository HydraKit
 
-Từ `1.0.1`, target này không còn được expose thành public library product để tránh app target link nhầm `XCTest`.
-
-Không add `HydraKitTesting` vào app target. Nếu app cũ đang link product này từ `1.0.0`, hãy xóa khỏi `Frameworks, Libraries, and Embedded Content`, sau đó update package lên `1.0.1` hoặc mới hơn.
-
-## Sử Dụng
+Test target nội bộ khai báo dependency `"HydraKitTesting"`. Chỉ import trong test target:
 
 ```swift
+import XCTest
 import HydraKitTesting
+
+final class ServiceTests: XCTestCase {
+    func testRecordedAction() throws {
+        let spy = HKSpy<String>()
+        spy.record("loaded")
+        XCTAssertEqual(spy.callCount, 1)
+        XCTAssertEqual(spy.lastValue, "loaded")
+
+        let stub = HKStub<Int, String> { "item-\($0)" }
+        XCTAssertEqual(try stub(42), "item-42")
+    }
+
+    func testAsyncHelper() async {
+        let value = await XCTAssertNoThrowAsync { () async throws -> String in
+            "ready"
+        }
+        XCTAssertEqual(value, "ready")
+        await XCTAssertEventually(timeout: 1) { value == "ready" }
+    }
+}
 ```
 
-Nếu app target báo lỗi link `XCTest`, hãy kiểm tra lại `Frameworks, Libraries, and Embedded Content` của app target và xóa `HydraKitTesting` khỏi đó.
+Chạy từ root: `swift test --filter ServiceTests` sau khi đặt test trên trong test target. Để chạy test đã có, dùng `swift test --filter HydraKitTestingTests`.
 
-## Ghi Chú Migration
+## Chọn test double
 
-Hiện chưa có version public cũ của `HydraKitTesting`. Khi có breaking change, hướng dẫn migration sẽ được cập nhật trong file này, `CHANGELOG.md` và DocC.
+| Helper | Khi dùng |
+| --- | --- |
+| HKSpy | Ghi input, kiểm tra values/callCount/lastValue; reset giữa lượt test |
+| HKStub, HKVoidStub | Trả kết quả hoặc throw qua handler; update để đổi hành vi |
+| HKFake | Dictionary RAM với value/setValue/removeValue/removeAll |
+| HKMockLogger | Ghi Entry để assert level/category/message/metadata |
+| HKMockDIContainer | Đăng ký instance service và resolve theo type |
+
+HKFake không conform KeyValueStore. Mock DI thiếu đăng ký gây preconditionFailure như DI thật; luôn đăng ký trước khi resolve. Không dùng container shared giữa test nếu cần cô lập.
+
+## Async assertions
+
+XCTAssertEventually poll condition đến khi true hoặc timeout; mặc định 1 giây, interval 0.01 giây. Condition throw làm test fail ngay. Dùng khi điều kiện cuối cùng là điều quan tâm, tránh sleep cố định. `XCTAssertNoThrowAsync`, trả optional kết quả; lỗi gây XCTFail và trả nil.
+
+## Snapshot
+
+`HKSnapshotHelper.assertSnapshot(_:named:config:)` so sánh String hoặc Data theo file, không render SwiftUI thành ảnh. Config gồm directory, recordsSnapshots và fileExtension (cho String).
+
+Lần đầu file chưa tồn tại sẽ tự ghi baseline, kể cả recordsSnapshots false. Để CI phát hiện baseline bị thiếu, app/test cần kiểm tra tồn tại trước. Đặt directory rõ ràng, lưu baseline vào repository và chỉ bật recordsSnapshots khi chủ động cập nhật. So sánh Data là byte equality, không có pixel tolerance.
+
+## Với app bên ngoài
+
+Dùng XCTest trực tiếp và các public mocks nằm trong module tương ứng: HKMockNetworkClient, HKMockRepository, HKMockViewModel. Không link target helper này vào app; nó phụ thuộc XCTest và có thể gây lỗi linker trong app target.
+
+## Đọc tiếp
+
+- [Trang tài liệu tổng](../../README.md)
+- [Hướng dẫn DocC](../../Documentation/HydraKit.docc/Articles/Testing.md)
+- [Tests của module](../../Tests/HydraKitTestingTests/)

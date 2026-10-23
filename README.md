@@ -186,6 +186,18 @@ Dùng các link dưới đây để đi thẳng tới hướng dẫn của từn
 | Theming | [Documentation/HydraKit.docc/Articles/Theming.md](Documentation/HydraKit.docc/Articles/Theming.md) |
 | Testing | [Documentation/HydraKit.docc/Articles/Testing.md](Documentation/HydraKit.docc/Articles/Testing.md) |
 
+### Hướng dẫn chi tiết bổ sung
+
+- [HydraKitStorage](Documentation/HydraKit.docc/Articles/Storage.md)
+- [HydraKitDomain](Documentation/HydraKit.docc/Articles/Domain.md)
+- [HydraKitRepository](Documentation/HydraKit.docc/Articles/Repositories.md)
+- [HydraKitMVVM](Documentation/HydraKit.docc/Articles/MVVM.md)
+- [HydraKitSecurity](Documentation/HydraKit.docc/Articles/Security.md)
+- [HydraKitAnalytics](Documentation/HydraKit.docc/Articles/Analytics.md)
+- [HydraKitDev](Documentation/HydraKit.docc/Articles/DeveloperTools.md)
+
+Các README theo target có ví dụ hoàn chỉnh, cách cấu hình, hành vi thực tế và lưu ý khi tích hợp. Đọc module cần dùng trước, sau đó tham khảo example để ghép các lớp.
+
 ### Examples
 
 | Example | Hướng dẫn | Code chính |
@@ -347,7 +359,7 @@ swift build
 
 ## Migration
 
-Package hiện đang ở giai đoạn `0.1.0`, chưa có version public cũ để migrate.
+Kiểm tra `CHANGELOG.md` và tag/branch đang tích hợp để xác định thay đổi áp dụng cho app. Riêng `HydraKitTesting` hiện là target nội bộ, không có public product.
 
 Khi có breaking change, hướng dẫn migration sẽ được cập nhật ở:
 
@@ -369,3 +381,11 @@ Quy tắc này giúp tài liệu luôn phản ánh đúng cấu trúc và khả 
 ## License
 
 Xem [LICENSE](LICENSE).
+
+### SwiftUI component guidelines
+
+HydraKitUI cung cấp component có theme, loading, validation, focus và accessibility. Xem [API và ví dụ component](Documentation/HydraKit.docc/Articles/Components.md) để chọn defaults, quản lý state và kiểm tra giao diện.
+
+HydraKitUI có thêm `HKSwitch` dạng pill với icon/chữ theo trạng thái; xem [hướng dẫn component](Documentation/HydraKit.docc/Articles/Components.md#hkswitch).
+
+`HKParallaxCarousel` bổ sung carousel ảnh có parallax và snap giữa; xem [API carousel](Documentation/HydraKit.docc/Articles/Components.md#hkparallaxcarousel).

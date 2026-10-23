@@ -1,0 +1,40 @@
+name: BankCardStackProbe
+options:
+  bundleIdPrefix: dev.hydrakit.probe
+  deploymentTarget:
+    iOS: '17.0'
+packages:
+  HydraKit:
+    path: ../../..
+targets:
+  BankCardStackProbe:
+    type: application
+    platform: iOS
+    sources: [App]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        PRODUCT_BUNDLE_IDENTIFIER: dev.hydrakit.probe.bankstack
+        CODE_SIGNING_ALLOWED: NO
+    dependencies:
+      - package: HydraKit
+        product: HydraKitUI
+  BankCardStackUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_ALLOWED: NO
+        TEST_TARGET_NAME: BankCardStackProbe
+    dependencies:
+      - target: BankCardStackProbe
+schemes:
+  BankCardStackProbe:
+    build:
+      targets:
+        BankCardStackProbe: all
+    test:
+      targets: [BankCardStackUITests]

@@ -30,7 +30,15 @@ Package gom các lớp nền tảng thường gặp trong một app hiện đạ
 - <doc:Networking>
 - <doc:Navigation>
 - <doc:Theming>
+- <doc:Components>
 - <doc:Testing>
+- <doc:Storage>
+- <doc:Domain>
+- <doc:Repositories>
+- <doc:MVVM>
+- <doc:Security>
+- <doc:Analytics>
+- <doc:DeveloperTools>
 
 ## Cài Đặt
 

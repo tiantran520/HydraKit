@@ -14,4 +14,11 @@ public protocol Theme: Sendable {
     var shadows: ShadowTokens { get }
     /// Animation tokens.
     var animations: AnimationTokens { get }
+    /// Shared interaction metrics. Existing themes inherit default metrics.
+    var controls: ControlTokens { get }
+}
+
+public extension Theme {
+    /// Default control metrics for themes that do not override them.
+    var controls: ControlTokens { ControlTokens() }
 }

@@ -1,45 +1,68 @@
 import SwiftUI
 
-/// A themed image wrapper.
+/// A resizable image. Supply a label for meaningful content; nil preserves native image semantics.
 public struct HKImage: View {
-    /// Image shape variants.
-    public enum HKVariant: Sendable {
-        /// Rectangular image.
-        case rectangle
-        /// Rounded image.
-        case rounded
-        /// Circular image.
-        case circle
-    }
+    /// Clipping shapes for the image.
+    public enum HKVariant: Sendable { case rectangle, rounded, circle }
 
+    @Environment(\.ironBitTheme) private var theme
     private let image: Image
     private let variant: HKVariant
+    private let contentMode: ContentMode
+    private let renderingMode: Image.TemplateRenderingMode?
+    private let accessibilityLabel: Text?
 
-    /// Creates an image wrapper.
+    /// Defaults: rounded, fill, original image rendering, native accessibility.
+    /// The parent supplies layout bounds. Fill may crop; fit preserves the entire image.
+    /// Preserves the original image initializer and the supplied Image accessibility.
     public init(_ image: Image, variant: HKVariant = .rounded) {
-        self.image = image
-        self.variant = variant
+        self.init(image, variant: variant, contentMode: .fill)
     }
 
-    /// The image body.
+    /// Creates an image with optional scaling, rendering, and accessibility overrides.
+    public init(
+        _ image: Image, variant: HKVariant = .rounded,
+        contentMode: ContentMode = .fill,
+        renderingMode: Image.TemplateRenderingMode? = nil,
+        accessibilityLabel: Text? = nil
+    ) {
+        self.image = image
+        self.variant = variant
+        self.contentMode = contentMode
+        self.renderingMode = renderingMode
+        self.accessibilityLabel = accessibilityLabel
+    }
+
     public var body: some View {
-        image
+        renderedImage
             .resizable()
-            .scaledToFill()
+            .aspectRatio(contentMode: contentMode)
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             .clipShape(shape)
+            .hkOptionalAccessibilityLabel(accessibilityLabel)
+    }
+
+    private var renderedImage: Image {
+        guard let renderingMode else { return image }
+        return image.renderingMode(renderingMode)
     }
 
     private var shape: AnyShape {
         switch variant {
         case .rectangle: AnyShape(Rectangle())
-        case .rounded: AnyShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+        case .rounded: AnyShape(RoundedRectangle(cornerRadius: theme.radius.md, style: .continuous))
         case .circle: AnyShape(Circle())
         }
     }
 }
 
-#Preview {
-    HKImage(Image(systemName: "photo"), variant: .rounded)
-        .frame(width: 80, height: 80)
-        .padding()
+#Preview("Image shapes, fit and accessibility") {
+    HKComponentPreview {
+        HStack {
+            HKImage(Image(systemName: "photo"), variant: .rectangle, contentMode: .fit)
+            HKImage(Image(systemName: "photo"), accessibilityLabel: Text("Sample landscape"))
+            HKImage(Image(systemName: "person.fill"), variant: .circle, contentMode: .fit)
+        }
+        .frame(height: 80)
+    }
 }

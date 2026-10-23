@@ -14,7 +14,8 @@ public extension ColorScheme {
                     surface: Color(red: 0.12, green: 0.13, blue: 0.15),
                     textPrimary: .primary,
                     textSecondary: .secondary,
-                    border: .gray.opacity(0.45)
+                    border: .gray.opacity(0.45),
+                    onPrimary: .black
                 )
             )
         default:
