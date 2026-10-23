@@ -128,3 +128,7 @@ HKTextField/HKSecureField luôn bỏ viền native bên trong (kể cả Legacy)
 ## English-learning flashcards
 
 `HKFlashcardDeck(items, cardHeight: 340, onSwipe: { item, direction in ... }) { item in ... } back: { item in ... }` provides two ViewBuilder faces, tap/3D flip, Tinder-style horizontal drag/dismissal, layered cards, completion/replay and native accessible controls. The deck owns transient progress; the parent owns the source and persisted study decisions. Open `Components/Layout/HKFlashcardDeck.swift` for the interactive offline places-in-English Canvas previews.
+
+## Water wave
+
+`HKWaterWave(percentage: 50, color: .yellow, textColor: .black).frame(width: 220, height: 220)` displays two animated water surfaces with a centered percentage. Pass 0...100 from parent state; customize colors, amplitude, cycle duration or hide the number. Reduce Motion and inactive/disappeared views pause the clock. Open `Components/Feedback/HKWaterWave.swift` for the reference and interactive Canvas previews.

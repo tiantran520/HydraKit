@@ -61,6 +61,8 @@ final class FlashcardDeckUITests: XCTestCase {
         let start = card.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
         start.press(forDuration: 0.05, thenDragTo: start.withOffset(CGVector(dx: -25, dy: 0)),
                     withVelocity: XCUIGestureVelocity(rawValue: 30), thenHoldForDuration: 0.4)
+        XCTAssertTrue(card.exists, "A short horizontal drag must return to the front")
+        XCTAssertFalse(app.buttons["Description 0"].exists)
         card.swipeDown()
         expect(app.staticTexts["swipes"], "0")
         XCTAssertTrue(card.exists)
@@ -85,20 +87,47 @@ final class FlashcardDeckUITests: XCTestCase {
     }
 
     func testVerticalDragOverCardScrollsTheParentPage() {
+        checkParentScroll(plain: false)
+    }
+
+    func testCoveringContentDoesNotSwipeTheUnderlyingDeck() {
         let app = XCUIApplication()
-        app.launchArguments = ["--scroll"]
+        app.launchArguments = ["--cover"]
+        app.launch()
+        let cover = app.staticTexts["cover"]
+        XCTAssertTrue(cover.waitForExistence(timeout: 5))
+        cover.swipeLeft(velocity: .fast)
+        expect(app.staticTexts["cover-drags"], "1")
+        expect(app.staticTexts["swipes"], "0")
+    }
+
+    func testParentScrollCalibrationWithNativeButton() {
+        checkParentScroll(plain: true)
+    }
+
+    private func checkParentScroll(plain: Bool) {
+        let app = XCUIApplication()
+        app.launchArguments = plain ? ["--scroll", "--plain-card"] : ["--scroll"]
         app.launch()
         let card = app.buttons["Place 0"]
         XCTAssertTrue(card.waitForExistence(timeout: 5))
-        let end = app.staticTexts["page-end"]
-        XCTAssertFalse(end.isHittable)
+        let initialY = card.frame.minY
         card.swipeUp(velocity: .fast)
-        let scrolled = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: end)
-        XCTAssertEqual(XCTWaiter.wait(for: [scrolled], timeout: 3), .completed)
+        attach(app, "Parent scroll after vertical drag")
+        let scrolled = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+            card.frame.minY < initialY - 40
+        }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [scrolled], timeout: 3), .completed,
+                       "Card frame must move with parent scrolling")
         expect(app.staticTexts["swipes"], "0")
         XCTAssertFalse(app.buttons["Description 0"].exists)
         app.scrollViews.firstMatch.swipeDown(velocity: .fast)
+        let top = XCTNSPredicateExpectation(predicate: NSPredicate { _, _ in
+            abs(card.frame.minY - initialY) < 5
+        }, object: nil)
+        XCTAssertEqual(XCTWaiter.wait(for: [top], timeout: 3), .completed)
         XCTAssertTrue(card.isHittable)
+        if plain { return }
         card.swipeLeft(velocity: .fast)
         expect(app.staticTexts["swipes"], "1")
         expect(app.staticTexts["last-swipe"], "0:left")

@@ -12,15 +12,18 @@ private struct Probe: View {
     @State private var swipes = 0
     @State private var completions = 0
     @State private var lastSwipe = "none"
+    @State private var coverDrags = 0
     private let arguments = ProcessInfo.processInfo.arguments
 
     var body: some View {
         Group {
             if arguments.contains("--scroll") {
                 ScrollView {
-                    content
-                    Color.clear.frame(height: 650)
-                    Text("Page end").accessibilityIdentifier("page-end")
+                    VStack(spacing: 0) {
+                        content
+                        Color.clear.frame(height: 650)
+                        Text("Page end").accessibilityIdentifier("page-end")
+                    }
                 }
             } else {
                 content
@@ -34,6 +37,14 @@ private struct Probe: View {
             Text("\(swipes)").accessibilityIdentifier("swipes")
             Text("\(completions)").accessibilityIdentifier("completions")
             Text(lastSwipe).accessibilityIdentifier("last-swipe")
+            if arguments.contains("--cover") { Text("\(coverDrags)").accessibilityIdentifier("cover-drags") }
+            if arguments.contains("--plain-card") {
+                Button {} label: {
+                    Text("Place 0").frame(maxWidth: .infinity).frame(height: 300).background(.indigo)
+                }
+                .buttonStyle(.plain)
+                Color.clear.frame(height: 70)
+            } else {
             HKFlashcardDeck(arguments.contains("--empty") ? [] : cards, cardHeight: 300,
                             leftActionLabel: Text("Review"), rightActionLabel: Text("Learned"),
                             onSwipe: { card, direction in
@@ -60,6 +71,15 @@ private struct Probe: View {
                 .accessibilityElement(children: .ignore).accessibilityLabel("Description \(card.id)")
             }
             .disabled(arguments.contains("--disabled"))
+            .overlay(alignment: .top) {
+                if arguments.contains("--cover") {
+                    Text("Cover").frame(maxWidth: .infinity).frame(height: 300)
+                        .background(.pink.opacity(0.4)).contentShape(Rectangle())
+                        .accessibilityIdentifier("cover")
+                        .gesture(DragGesture(minimumDistance: 12).onEnded { _ in coverDrags += 1 })
+                }
+            }
+            }
         }
         .padding(24)
         .frame(maxWidth: .infinity, maxHeight: arguments.contains("--scroll") ? nil : .infinity, alignment: .top)

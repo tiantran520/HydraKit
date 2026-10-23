@@ -20,8 +20,10 @@ is only a tool for this optional host; no dependencies are added to the library.
 
 The suite checks tap/controlled flip, physical left/right swipes, RTL, callback
 counts, front reset, completion/replay, disabled state, short and vertical drags,
-parent-owned source removal, empty data and scrolling over a card in a parent
-ScrollView. Screenshot attachments capture both faces and the completed state.
+parent-owned source removal, empty data, overlay touch isolation and scrolling over
+a card in a parent ScrollView. Parent scrolling is checked using actual screen
+frames, with a native Button calibration; the test avoids relying on a geometry
+preference that can report a stationary coordinate space. Screenshot attachments capture both faces and the completed state.
 SwiftPM tests independently cover gesture classification and study-state rules.
 
 These UI tests do not verify VoiceOver speech or the device Reduce Motion setting.

@@ -37,3 +37,5 @@
 - Add independent HKBankCardStack with Home-style gestures, focused-card Binding, optional delete requests, previews and tests.
 
 - Add HKFlashcardDeck for two-sided English-learning cards, 3D flip, Tinder-style swipe, stable-ID progress, completion/replay, accessible native controls, inline Canvas previews and unit/UI tests.
+
+- Add HKWaterWave with configurable percentage/color, independent animated wave layers, exact empty/full endpoints, native progress accessibility, inline previews and render/UI tests.

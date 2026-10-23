@@ -202,6 +202,38 @@ Tests kiểm tra giới hạn một card cho quán tính lớn hai chiều, kéo
 
 Preview có selection điều khiển từ button, parallax bật/tắt, nhiều card, empty data và light/dark/accessibility text size. Dùng `HYDRAKIT_PREVIEW_OUTPUT` khi chạy tests để xuất ảnh native carousel vào thư mục có sẵn.
 
+## HKWaterWave
+
+Circular water-level indicator matching the yellow wave/centered percentage reference. Percentage and color are input values owned by the parent; no Binding or copied progress State is needed.
+
+```swift
+@State private var waterPercentage = 50.0
+
+HKWaterWave(percentage: waterPercentage, color: .yellow, textColor: .black)
+    .frame(width: 220, height: 220)
+Slider(value: $waterPercentage, in: 0...100)
+```
+
+| Property | Meaning / default |
+| --- | --- |
+| percentage | Required 0...100 value; clamped, with nonfinite input treated as 0 |
+| color | Nil uses theme primary; rear wave derives a translucent tint |
+| backgroundColor | Nil uses theme surface for the empty area |
+| textColor | Nil uses theme textPrimary; choose contrast explicitly for custom water colors |
+| showsPercentage | true; localized, rounded whole percentage centered in the circle |
+| waveHeight | 0.035 of diameter, clamped to 0...0.15; tapers near empty/full |
+| duration | 2 seconds per foreground cycle, clamped to 0.25...60; invalid values use 2 |
+| isAnimating | true; controls continuous waves, independently of value-change animation |
+| accessibilityLabel | Text("Water level"), represented by a native ProgressView |
+
+The component expands as a square using aspectRatio(1, .fit), with no fixed production size. Size it using normal SwiftUI frame modifiers. Zero is genuinely empty, 100 is completely full, and value changes interpolate the surface using the theme animation. Percentage denotes linear fill height, not a physical volume/area calculation for the circle.
+
+Two sine surfaces move independently, with separate complete phase cycles to avoid a rear-wave jump when the front cycle wraps. TimelineView schedules up to 30 frames per second; phase is not animatable State, so clock ticks do not restart level interpolation. The clock pauses when the view disappears from the hierarchy, the scene is inactive, motion is disabled, waveHeight is zero, or the level is empty/full. A retained VStack inside ScrollView may keep views mounted outside the viewport: the parent can drive isAnimating for explicit viewport-based activation. Reduce Motion stops wave motion and removes animated value transitions. There are no timers, repeat-forever tasks, services or additional dependencies.
+
+Typography uses theme display; spacing uses the shared token. Text wraps neither into the wave nor outside its frame: the one-line value can scale down in small gauges; use showsPercentage: false for miniature decorative gauges. The native progress accessibility representation still exposes the full label and localized value when the visible number is hidden. It does not announce every decorative wave frame. Use textColor/backgroundColor to maintain contrast for your supplied color; the yellow sample deliberately uses black text in both appearances.
+
+Canvas previews are declared directly in Components/Feedback/HKWaterWave.swift: reference 50% yellow, interactive percentage slider/color/motion controls, light/dark, accessibility text and 0/100 endpoints. Unit tests cover input normalization, periodicity/loop continuity, wave bounds and endpoint paths; macOS ImageRenderer tests check real fill colors and empty/full/half rendering. Tests/Fixtures/WaterWaveHost adds app-hosted percentage updates, clamping, color/pause and native progress-value checks. Device VoiceOver and the OS Reduce Motion preference should also be exercised by the integrating app.
+
 ## HKFlashcardDeck
 
 Component mới cho thẻ học hai mặt, độc lập với bank-card stack và carousel. Mặt trước có thể là địa điểm/hình ảnh; mặt sau là mô tả tiếng Anh, phát âm hoặc câu ví dụ. Nội dung hai mặt là ViewBuilder do caller cung cấp, không có model học tập hay dữ liệu ngân hàng trong component.
@@ -241,7 +273,7 @@ Study progress, flip and gesture/animation state are internal. Input items are n
 
 Repeated commands are blocked during dismissal. ID changes, disabling or disappearance invalidate pending animation completions and prevent stale callbacks. Reduce Motion disables the 3D rotation, tilt and animated dismissal while retaining direct finger tracking and the same study callbacks. Parent .disabled applies to gestures, card activation and controls. Native Button accessibility represents only the currently visible face, supplies front/back value and flip hint, and exposes named left/right actions even with showsControls false. Native controls stay outside the transformed layers so touch targets do not shrink with card depth.
 
-Width follows the parent; cardHeight is intentional fixed card geometry. Use @ScaledMetric for cardHeight and multiline text for larger Dynamic Type, as the sample preview does. Long study descriptions should fit the configured face height; this is not a nested scrolling document reader. A simultaneous outer drag observes horizontal movement while preserving vertical scrolling in a parent ScrollView; the inner native flip button is temporarily disabled during a drag so release does not become a tap.
+Width follows the parent; cardHeight is intentional fixed card geometry. Use @ScaledMetric for cardHeight and multiline text for larger Dynamic Type, as the sample preview does. Long study descriptions should fit the configured face height; this is not a nested scrolling document reader. On iOS, a transparent UIViewRepresentable surface belongs only to the card and uses native tap/pan recognizers. The pan rejects vertical intent before recognition, preserving parent ScrollView scrolling; the tap recognizer rejects a drag, so releasing inside the face does not flip it. No recognizers are installed on windows or hosting ancestors. Other platforms use SwiftUI tap/drag handling. Native Button accessibility plus Space/Return activation and footer buttons provide keyboard/accessibility alternatives.
 
 Open HKFlashcardDeck.swift in Xcode Canvas: previews are declared directly in that file. Offline examples use Library, Museum and Airport, with English definitions, pronunciation, example sentences and Vietnamese hints. Preview variants cover interactive controls, light/dark, accessibility text, disabled, gestures-only and empty data. Unit tests exercise swipe intent, stable-ID progress, completion and restart. The separate Tests/Fixtures/FlashcardDeckHost app exercises actual flips, both swipe directions, RTL, short/vertical drags, parent removal, completion/replay and vertical parent scrolling. iOS 17 availability is verified by build; device VoiceOver and motion preferences still require app/device verification.
 

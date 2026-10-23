@@ -9,7 +9,7 @@ public struct HKFlashcardDeck<Data: RandomAccessCollection, Front: View, Back: V
     @State private var study = HKFlashcardDeckState<Data.Element.ID>()
     @State private var dismissal: Dismissal?
     @State private var revision: UInt = 0
-    @GestureState private var gesture = DragSnapshot()
+    @State private var gesture = DragSnapshot()
 
     private let items: Data
     private let cardHeight: CGFloat
@@ -130,47 +130,46 @@ public struct HKFlashcardDeck<Data: RandomAccessCollection, Front: View, Back: V
     private func activeCard(_ item: Data.Element, width: CGFloat) -> some View {
         let x = dismissal.map { $0.direction.sign * (width + cardHeight) } ?? drag.width
         return ZStack {
+            face(front(item), angle: study.isFlipped ? 180 : 0, visible: !study.isFlipped)
+            face(back(item), angle: study.isFlipped ? 0 : -180, visible: study.isFlipped)
+        }
+        .frame(maxWidth: .infinity)
+        .contentShape(Rectangle())
+        .accessibilityRepresentation {
             Button { flip() } label: {
-                ZStack {
-                    face(front(item), angle: study.isFlipped ? 180 : 0, visible: !study.isFlipped)
-                    face(back(item), angle: study.isFlipped ? 0 : -180, visible: study.isFlipped)
-                }
-                .frame(maxWidth: .infinity)
-                .contentShape(Rectangle())
+                if study.isFlipped { back(item) } else { front(item) }
             }
-            .buttonStyle(HKFlashcardPressStyle(pressedOpacity: theme.controls.pressedOpacity))
-            // Disable the child press once any drag starts, without disabling the outer gesture.
-            // This prevents a short/vertical drag from becoming a flip on finger release.
-            .disabled(dismissal != nil || gesture.isActive)
-            .accessibilityRepresentation {
-                Button { flip() } label: {
-                    if study.isFlipped { back(item) } else { front(item) }
-                }
-                .disabled(!isEnabled || dismissal != nil || gesture.isActive)
-                .accessibilityValue(study.isFlipped ? Text("Back") : Text("Front"))
-                .accessibilityHint(Text("Activate to flip the card"))
-                .accessibilityActions {
-                    Button { swipe(item, direction: .left) } label: { leftActionLabel }
-                    Button { swipe(item, direction: .right) } label: { rightActionLabel }
-                }
+            .disabled(!isEnabled || dismissal != nil || gesture.isActive)
+            .accessibilityValue(study.isFlipped ? Text("Back") : Text("Front"))
+            .accessibilityHint(Text("Activate to flip the card"))
+            .accessibilityActions {
+                Button { swipe(item, direction: .left) } label: { leftActionLabel }
+                Button { swipe(item, direction: .right) } label: { rightActionLabel }
             }
         }
+        .focusable(isEnabled && dismissal == nil)
+        .onKeyPress(.space) { flip(); return .handled }
+        .onKeyPress(.return) { flip(); return .handled }
         .rotationEffect(.degrees(reduceMotion ? 0 : Double(min(15, max(-15, x / max(1, width) * 12)))))
         .offset(x: x, y: dismissal == nil ? drag.height * 0.08 : 0)
         .animation(reduceMotion ? nil : theme.animations.standard, value: drag)
-        .simultaneousGesture(DragGesture(minimumDistance: 12)
-            .updating($gesture) { value, state, transaction in
+        .modifier(HKFlashcardDragModifier(isEnabled: isEnabled && dismissal == nil, revision: revision,
+            onTap: { flip() },
+            onChanged: { translation in
                 guard isEnabled, dismissal == nil else { return }
+                var transaction = Transaction()
                 transaction.disablesAnimations = true
-                state.isActive = true
-                state.translation = abs(value.translation.width) > abs(value.translation.height) ? value.translation : .zero
-            }
-            .onEnded { value in
-                guard let direction = HKFlashcardSwipe.resolve(translation: value.translation,
-                                                               predicted: value.predictedEndTranslation,
-                                                               width: width, threshold: swipeThreshold) else { return }
-                swipe(item, direction: direction)
-            })
+                withTransaction(transaction) {
+                    gesture.isActive = true
+                    gesture.translation = abs(translation.width) > abs(translation.height) ? translation : .zero
+                }
+            }, onEnded: { translation, predicted in
+                if let direction = HKFlashcardSwipe.resolve(translation: translation, predicted: predicted,
+                                                            width: width, threshold: swipeThreshold) {
+                    swipe(item, direction: direction)
+                }
+                gesture = DragSnapshot()
+            }, onCancelled: { gesture = DragSnapshot() }))
     }
 
     private func face<Face: View>(_ content: Face, angle: Double, visible: Bool) -> some View {
@@ -236,19 +235,11 @@ public struct HKFlashcardDeck<Data: RandomAccessCollection, Front: View, Back: V
         if complete { onComplete?() }
     }
 
-    private func cancelMotion() { revision &+= 1; dismissal = nil }
+    private func cancelMotion() { revision &+= 1; dismissal = nil; gesture = DragSnapshot() }
     private func restart() {
         guard isEnabled else { return }
         cancelMotion()
         study.restart(ids: items.map(\.id))
-    }
-}
-
-/// Keeps drag cancellation from dimming an entire face, while preserving native Button semantics.
-private struct HKFlashcardPressStyle: ButtonStyle {
-    let pressedOpacity: Double
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label.opacity(configuration.isPressed ? pressedOpacity : 1)
     }
 }
 
