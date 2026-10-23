@@ -124,3 +124,7 @@ HKTextField/HKSecureField luôn bỏ viền native bên trong (kể cả Legacy)
 ## Bank card stack
 
 `HKBankCardStack(items, presentation: $mode, selection: $selectedID, cardHeight: 200) { card in ... }` is a separate SwiftUI component inspired by Facepay Home: right/left opens/closes the fan, down/up expands/collapses, and tapping focuses a card. Optional `onDelete` enables an expanded-card reveal and requests removal; the parent owns confirmation and data. Content uses a ViewBuilder and existing theme tokens. See the component guide for API defaults, accessibility, previews and the offline gesture test host.
+
+## English-learning flashcards
+
+`HKFlashcardDeck(items, cardHeight: 340, onSwipe: { item, direction in ... }) { item in ... } back: { item in ... }` provides two ViewBuilder faces, tap/3D flip, Tinder-style horizontal drag/dismissal, layered cards, completion/replay and native accessible controls. The deck owns transient progress; the parent owns the source and persisted study decisions. Open `Components/Layout/HKFlashcardDeck.swift` for the interactive offline places-in-English Canvas previews.

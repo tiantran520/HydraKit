@@ -202,6 +202,49 @@ Tests kiểm tra giới hạn một card cho quán tính lớn hai chiều, kéo
 
 Preview có selection điều khiển từ button, parallax bật/tắt, nhiều card, empty data và light/dark/accessibility text size. Dùng `HYDRAKIT_PREVIEW_OUTPUT` khi chạy tests để xuất ảnh native carousel vào thư mục có sẵn.
 
+## HKFlashcardDeck
+
+Component mới cho thẻ học hai mặt, độc lập với bank-card stack và carousel. Mặt trước có thể là địa điểm/hình ảnh; mặt sau là mô tả tiếng Anh, phát âm hoặc câu ví dụ. Nội dung hai mặt là ViewBuilder do caller cung cấp, không có model học tập hay dữ liệu ngân hàng trong component.
+
+```swift
+HKFlashcardDeck(places, cardHeight: 340,
+                leftActionLabel: Text("Review again"),
+                rightActionLabel: Text("Remembered"),
+                onSwipe: { place, direction in
+    // Save this study decision in the parent/view model.
+}, onComplete: {
+    // Present a study summary if needed.
+}) { place in
+    PlaceFrontFace(place: place) // Your display-only face.
+} back: { place in
+    PlaceEnglishDescription(place: place)
+}
+```
+
+| Property | Meaning / default |
+| --- | --- |
+| items | RandomAccessCollection of Identifiable items with unique stable IDs, in study order |
+| cardHeight | Required face height; negative/nonfinite becomes zero and hides the deck |
+| visibleCardCount | 3, clamped to 1...5 layered cards |
+| swipeThreshold | 0.25 of card width, clamped to 0.1...0.8; short intentional flicks may also commit |
+| spacing | Nil uses theme spacing.sm for the rear-card peek |
+| cornerRadius | Nil uses theme radius.lg |
+| showsControls | true: native left/flip/right buttons offer alternatives to dragging |
+| leftActionLabel / rightActionLabel | Text("Swipe left") / Text("Swipe right"); supply localized study labels as needed |
+| onSwipe | Optional callback with the displayed item snapshot and physical .left/.right direction, once after a committed dismissal |
+| onComplete | Optional callback after a committed swipe exhausts available items; not called for initially empty data or removal alone |
+| front / back | Display-only SwiftUI face builders; no nested buttons or scrolling controls |
+
+Tap the current face or use “Flip card” to rotate around the vertical axis. Backface culling avoids mirrored text. A horizontal drag follows the finger, tilts the active card and flies it out when committed; short or vertical drags do not consume a card or flip it. The next card always starts on its front. Left/right retain their physical meanings in RTL. They have no hardcoded review/learned business meaning; the callback owner chooses that mapping.
+
+Study progress, flip and gesture/animation state are internal. Input items are never mutated. Consumed IDs are skipped, the active stable ID and face survive reorder, and removal selects the next unseen ID. Appending unseen IDs makes them available, including after exhaustion; studying those can trigger another onComplete event. IDs removed from the source are forgotten, so reintroducing a removed ID makes it available again. “Start again” clears internal progress without replacing the source. Use normal SwiftUI identity, e.g. .id(sessionID), for a parent-driven new session. Persist learning results in onSwipe, not in transient face content.
+
+Repeated commands are blocked during dismissal. ID changes, disabling or disappearance invalidate pending animation completions and prevent stale callbacks. Reduce Motion disables the 3D rotation, tilt and animated dismissal while retaining direct finger tracking and the same study callbacks. Parent .disabled applies to gestures, card activation and controls. Native Button accessibility represents only the currently visible face, supplies front/back value and flip hint, and exposes named left/right actions even with showsControls false. Native controls stay outside the transformed layers so touch targets do not shrink with card depth.
+
+Width follows the parent; cardHeight is intentional fixed card geometry. Use @ScaledMetric for cardHeight and multiline text for larger Dynamic Type, as the sample preview does. Long study descriptions should fit the configured face height; this is not a nested scrolling document reader. A simultaneous outer drag observes horizontal movement while preserving vertical scrolling in a parent ScrollView; the inner native flip button is temporarily disabled during a drag so release does not become a tap.
+
+Open HKFlashcardDeck.swift in Xcode Canvas: previews are declared directly in that file. Offline examples use Library, Museum and Airport, with English definitions, pronunciation, example sentences and Vietnamese hints. Preview variants cover interactive controls, light/dark, accessibility text, disabled, gestures-only and empty data. Unit tests exercise swipe intent, stable-ID progress, completion and restart. The separate Tests/Fixtures/FlashcardDeckHost app exercises actual flips, both swipe directions, RTL, short/vertical drags, parent removal, completion/replay and vertical parent scrolling. iOS 17 availability is verified by build; device VoiceOver and motion preferences still require app/device verification.
+
 ## HKBankCardStack
 
 Component mới, độc lập với HKCard/HKParallaxCarousel. Tham khảo chuyển động WECardsView ở Home Facepay; WEAddBankCard trong project tham chiếu là WebView liên kết thẻ, không phải view animation. Component SwiftUI không phụ thuộc UIKit/RxSwift/Facepay hoặc service ngân hàng.

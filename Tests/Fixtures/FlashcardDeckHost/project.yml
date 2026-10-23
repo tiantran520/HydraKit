@@ -1,0 +1,40 @@
+name: FlashcardDeckProbe
+options:
+  bundleIdPrefix: dev.hydrakit.probe
+  deploymentTarget:
+    iOS: '17.0'
+packages:
+  HydraKit:
+    path: ../../..
+targets:
+  FlashcardDeckProbe:
+    type: application
+    platform: iOS
+    sources: [App]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        PRODUCT_BUNDLE_IDENTIFIER: dev.hydrakit.probe.flashcards
+        CODE_SIGNING_ALLOWED: NO
+    dependencies:
+      - package: HydraKit
+        product: HydraKitUI
+  FlashcardDeckUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_ALLOWED: NO
+        TEST_TARGET_NAME: FlashcardDeckProbe
+    dependencies:
+      - target: FlashcardDeckProbe
+schemes:
+  FlashcardDeckProbe:
+    build:
+      targets:
+        FlashcardDeckProbe: all
+    test:
+      targets: [FlashcardDeckUITests]

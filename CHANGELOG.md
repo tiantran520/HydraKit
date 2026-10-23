@@ -35,3 +35,5 @@
 - Triển khai `HydraKitAnalytics` với analytics provider/service, event/screen tracking, crash reporting, performance monitor, remote config, A/B testing và feature flags.
 
 - Add independent HKBankCardStack with Home-style gestures, focused-card Binding, optional delete requests, previews and tests.
+
+- Add HKFlashcardDeck for two-sided English-learning cards, 3D flip, Tinder-style swipe, stable-ID progress, completion/replay, accessible native controls, inline Canvas previews and unit/UI tests.
