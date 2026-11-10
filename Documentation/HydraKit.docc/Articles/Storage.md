@@ -60,7 +60,7 @@ Dùng `.documents` cho dữ liệu người dùng, `.caches` cho dữ liệu có
 
 ## SwiftData và Core Data
 
-- SwiftData: tạo Schema và `ModelContainer.ironBitDefault(for:isStoredInMemoryOnly:)`, bọc bằng `HKSwiftDataStack`, truyền ModelContext vào `HKSwiftDataStore<Model>`. Model của app cần `@Model` và PersistentModel.
+- SwiftData: tạo Schema và `ModelContainer.hydraKitDefault(for:isStoredInMemoryOnly:)`, bọc bằng `HKSwiftDataStack`, truyền ModelContext vào `HKSwiftDataStore<Model>`. Model của app cần `@Model` và PersistentModel.
 - Core Data: tạo NSPersistentContainer với model của app, truyền vào `HKCoreDataStack`, `try await loadPersistentStores()`, lấy context để tạo `HKCoreDataStore<Model>`.
 - Cả hai store có `insert`, `delete`, `save`; sau thay đổi gọi `save()` để persist. Fetch/query dùng context gốc, vì `DatabaseStore` chưa cung cấp read API.
 - Giữ thao tác SwiftData trên executor phù hợp với ModelContext; `@unchecked Sendable` không tự bảo vệ context khỏi truy cập đồng thời.

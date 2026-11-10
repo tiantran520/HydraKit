@@ -9,7 +9,7 @@ public enum HKBankCardStackPresentation: Sendable {
 /// A content-driven bank card stack inspired by Facepay Home's WECardsView.
 /// The caller supplies display-only card content and owns banking/navigation/deletion logic.
 public struct HKBankCardStack<Data: RandomAccessCollection, Content: View>: View where Data.Element: Identifiable {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.layoutDirection) private var layoutDirection

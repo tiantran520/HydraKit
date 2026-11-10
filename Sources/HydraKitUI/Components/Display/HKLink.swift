@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed link.
 public struct HKLink: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let url: URL
 

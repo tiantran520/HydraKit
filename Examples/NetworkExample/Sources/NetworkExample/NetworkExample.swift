@@ -15,7 +15,7 @@ struct NetworkExample {
 
         let request = URLRequest(url: URL(string: "https://api.example.com/users/1")!)
         let response = try await client.data(for: request)
-        let user = try JSONDecoder.ironBitDefault().decode(UserDTO.self, from: response.value)
+        let user = try JSONDecoder.hydraKitDefault().decode(UserDTO.self, from: response.value)
 
         print("Loaded user:", user.name)
         print("HTTP status:", response.status.rawValue)

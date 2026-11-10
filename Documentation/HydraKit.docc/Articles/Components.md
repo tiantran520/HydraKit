@@ -1,10 +1,10 @@
 # SwiftUI components: API và quy ước
 
-Các component nền tảng của HydraKitUI dùng native SwiftUI, đọc `ironBitTheme` và không xử lý nghiệp vụ. Các initializer cũ được giữ lại. Phiên bản tối thiểu vẫn theo Package.swift: iOS 17, macOS 14, watchOS 10, tvOS 17 và visionOS 1. Không có dependency mới.
+Các component nền tảng của HydraKitUI dùng native SwiftUI, đọc `hydraKitTheme` và không xử lý nghiệp vụ. Các initializer cũ được giữ lại. Phiên bản tối thiểu vẫn theo Package.swift: iOS 17, macOS 14, watchOS 10, tvOS 17 và visionOS 1. Không có dependency mới.
 
 ## Theme và trạng thái
 
-Gắn `.ironBitTheme(colorScheme.defaultHydraTheme)` ở root nếu muốn theme mặc định thay đổi theo light/dark. `DefaultTheme()` riêng lẻ không tự đổi màu. `ColorTokens.onPrimary` là màu chữ/icon trên nền primary; custom brand phải cấu hình cặp màu có độ tương phản phù hợp. Dark theme mặc định dùng chữ đen trên cyan.
+Gắn `.hydraKitTheme(colorScheme.defaultHydraTheme)` ở root nếu muốn theme mặc định thay đổi theo light/dark. `DefaultTheme()` riêng lẻ không tự đổi màu. `ColorTokens.onPrimary` là màu chữ/icon trên nền primary; custom brand phải cấu hình cặp màu có độ tương phản phù hợp. Dark theme mặc định dùng chữ đen trên cyan.
 
 `ControlTokens` tập trung minimumTarget (44), small/medium/largeHeight (44/44/56), small/medium/largeIcon (16/22/32), borderWidth (1), focusBorderWidth (2), disabledOpacity (0.5) và pressedOpacity (0.82). Chỉ dùng chiều cao tối thiểu để nội dung có thể tăng theo Dynamic Type. Theme cũ tự nhận control tokens mặc định qua protocol extension.
 

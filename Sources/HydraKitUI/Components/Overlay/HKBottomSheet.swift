@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A bottom sheet container.
 public struct HKBottomSheet<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let content: Content
 
     /// Creates a bottom sheet.

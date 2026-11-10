@@ -10,7 +10,7 @@ public final class HKURLSessionNetworkClient: NetworkClient {
     ///   - session: The URL session used to perform requests.
     ///   - retryPolicy: The retry policy used for failed attempts.
     public init(
-        session: URLSession = URLSession(configuration: .ironBitDefault()),
+        session: URLSession = URLSession(configuration: .hydraKitDefault()),
         retryPolicy: RetryPolicy = .default
     ) {
         self.session = session

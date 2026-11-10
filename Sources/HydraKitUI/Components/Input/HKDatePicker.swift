@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed date picker.
 public struct HKDatePicker: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     @Binding private var date: Date
 

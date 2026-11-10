@@ -5,7 +5,7 @@ public struct HKImage: View {
     /// Clipping shapes for the image.
     public enum HKVariant: Sendable { case rectangle, rounded, circle }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let image: Image
     private let variant: HKVariant
     private let contentMode: ContentMode

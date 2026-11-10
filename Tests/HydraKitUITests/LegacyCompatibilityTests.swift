@@ -60,7 +60,7 @@ final class LegacyCompatibilityTests: XCTestCase {
             AnyView(HKAsyncImage(url: nil)),
             AnyView(HKAsyncImage(url: nil) { Text("Loading") } failure: { Text("Retry") })
         ]
-        for view in views { _ = view.ironBitTheme(LegacyTheme()) }
+        for view in views { _ = view.hydraKitTheme(LegacyTheme()) }
         let theme: any Theme = LegacyTheme()
         XCTAssertGreaterThanOrEqual(theme.controls.minimumTarget, 44)
     }

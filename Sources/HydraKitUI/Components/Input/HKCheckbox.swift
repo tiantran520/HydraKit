@@ -23,7 +23,7 @@ public struct HKCheckbox: View {
 }
 
 private struct HKCheckboxToggleStyle: ToggleStyle {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
 
     func makeBody(configuration: Configuration) -> some View {

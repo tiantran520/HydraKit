@@ -5,7 +5,7 @@ public struct HKToggle: View {
     /// Compact changes typography while preserving the native interaction target.
     public enum HKVariant: Sendable { case standard, compact }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: Text
     @Binding private var isOn: Bool
     private let variant: HKVariant

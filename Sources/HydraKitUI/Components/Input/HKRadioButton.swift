@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed radio button bound to a selected value.
 public struct HKRadioButton<Value: Hashable>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let value: Value
     @Binding private var selection: Value

@@ -12,7 +12,7 @@ struct NavigationExample: App {
     var body: some Scene {
         WindowGroup {
             NavigationContentView()
-                .ironBitTheme(DefaultTheme())
+                .hydraKitTheme(DefaultTheme())
         }
     }
 }

@@ -10,7 +10,7 @@ public struct HKStepper<Value: Strideable>: View where Value.Stride: SignedNumer
         case compact
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     @Binding private var value: Value
     private let range: ClosedRange<Value>

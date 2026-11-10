@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A reusable error state with a retry action.
 public struct RetryView: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let message: String?
     private let retryTitle: String

@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A simple themed tab bar.
 public struct HKTabBar<Item: Hashable>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let items: [(Item, String, String)]
     @Binding private var selection: Item
 

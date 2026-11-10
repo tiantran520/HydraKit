@@ -15,8 +15,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitMVVM"
-               BuildableName = "IronBitCoreKitMVVM"
+               BlueprintIdentifier = "HydraKitNavigation"
+               BuildableName = "HydraKitNavigation"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,8 +50,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "IronBitCoreKitMVVM"
-            BuildableName = "IronBitCoreKitMVVM"
+            BlueprintIdentifier = "HydraKitNavigation"
+            BuildableName = "HydraKitNavigation"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed search bar.
 public struct HKSearchBar: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Binding private var text: String
     private let placeholder: String
 

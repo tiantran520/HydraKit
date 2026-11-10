@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed accordion.
 public struct HKAccordion<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @State private var isExpanded: Bool
     private let title: String
     private let content: Content

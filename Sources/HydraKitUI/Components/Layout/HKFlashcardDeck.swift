@@ -3,7 +3,7 @@ import SwiftUI
 /// A Tinder-style, two-sided study deck. Tap to flip; swipe horizontally to dismiss.
 /// Owns transient study/flip state; never changes items or persists learning results.
 public struct HKFlashcardDeck<Data: RandomAccessCollection, Front: View, Back: View>: View where Data.Element: Identifiable {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var study = HKFlashcardDeckState<Data.Element.ID>()

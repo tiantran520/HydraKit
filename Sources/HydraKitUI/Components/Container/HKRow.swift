@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed row container.
 public struct HKRow<Leading: View, Trailing: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let leading: Leading
     private let trailing: Trailing
 

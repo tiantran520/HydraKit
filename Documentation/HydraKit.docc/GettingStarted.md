@@ -38,7 +38,7 @@ struct ContentView: View {
             HKButton("Tiếp tục") {}
         }
         .padding()
-        .ironBitTheme(DefaultTheme())
+        .hydraKitTheme(DefaultTheme())
     }
 }
 ```

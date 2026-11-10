@@ -43,7 +43,7 @@ func loadTodos() async throws -> [Todo] {
 
 `Endpoint` chỉ bắt buộc `baseURL`, `path`; mặc định GET, headers/query rỗng, body nil, timeout 60 giây, cache policy `.useProtocolCachePolicy`. Override `method`, `headers`, `body` để gửi POST. Encode body bằng `JSONEncoder` và đặt `Content-Type: application/json`. `RequestBuilder().buildRequest(for:)` nối path và tạo URLRequest; queryItems sẽ thay query trên URL khi không rỗng.
 
-`send` mặc định dùng `JSONDecoder()` thông thường. Truyền decoder phù hợp API; `.ironBitDefault()` dùng cấu hình của thư viện, xem [Decoding](Decoding/).
+`send` mặc định dùng `JSONDecoder()` thông thường. Truyền decoder phù hợp API; `.hydraKitDefault()` dùng cấu hình của thư viện, xem [Decoding](Decoding/).
 
 ## Nối interceptor vào request
 

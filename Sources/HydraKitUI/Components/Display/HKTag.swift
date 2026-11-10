@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A small neutral tag.
 public struct HKTag: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
 
     /// Creates a tag.

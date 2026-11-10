@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A breadcrumb navigation display.
 public struct HKBreadcrumb: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let items: [String]
 
     /// Creates breadcrumbs.

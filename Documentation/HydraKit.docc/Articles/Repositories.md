@@ -44,7 +44,7 @@ Dùng `save(_:id:)`; `save(_:)` của local repository luôn ném unsupportedOpe
 
 `HKNetworkRepository<ID, Mapper>` nhận client, mapper và `readEndpoint`; cấu hình thêm readAllEndpoint/saveEndpoint/deleteEndpoint khi cần. Mapper conform `DTOMapper`, cung cấp `mapToModel` và `mapToDTO`, DTO phải Codable & Sendable. Domain model không bắt buộc Codable ở repository network.
 
-API đọc một item decode một DTO, đọc tất cả decode `[DTO]`. Nếu server có envelope như `{ "items": [...] }`, cần adapter phù hợp thay vì truyền endpoint trực tiếp và mong thư viện tự unwrap. Thiếu endpoint tùy chọn ném unsupportedOperation. HTTP 404 hiện thành networkFailed, không tự chuyển về nil. Decoder mặc định ở repository là `.ironBitDefault()`.
+API đọc một item decode một DTO, đọc tất cả decode `[DTO]`. Nếu server có envelope như `{ "items": [...] }`, cần adapter phù hợp thay vì truyền endpoint trực tiếp và mong thư viện tự unwrap. Thiếu endpoint tùy chọn ném unsupportedOperation. HTTP 404 hiện thành networkFailed, không tự chuyển về nil. Decoder mặc định ở repository là `.hydraKitDefault()`.
 
 ## Hybrid và chiến lược đọc
 

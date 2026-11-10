@@ -23,7 +23,7 @@ struct ProfileForm: View {
             }
             HKButton("Hủy", variant: .tertiary) { name = ""; error = nil }
         }
-        .ironBitTheme(colorScheme.defaultHydraTheme)
+        .hydraKitTheme(colorScheme.defaultHydraTheme)
     }
 }
 ```
@@ -39,9 +39,9 @@ let theme = DefaultTheme(
 )
 ```
 
-Gắn `.ironBitTheme(theme)` trên root view để descendants nhận theme. Component riêng đọc `@Environment(\.ironBitTheme)`. Token gồm colors, typography, spacing, radius, shadows, animations. DefaultTheme là giá trị; muốn đổi runtime hãy giữ theme trong state và truyền lại modifier.
+Gắn `.hydraKitTheme(theme)` trên root view để descendants nhận theme. Component riêng đọc `@Environment(\.hydraKitTheme)`. Token gồm colors, typography, spacing, radius, shadows, animations. DefaultTheme là giá trị; muốn đổi runtime hãy giữ theme trong state và truyền lại modifier.
 
-Tên environment/modifier hiện là `ironBitTheme`, không phải `hydraTheme`. DefaultTheme() không tự đổi theo color scheme; dùng `colorScheme.defaultHydraTheme` như ví dụ để chọn màu dark/light.
+Tên environment/modifier hiện là `hydraKitTheme`, không phải `hydraTheme`. DefaultTheme() không tự đổi theo color scheme; dùng `colorScheme.defaultHydraTheme` như ví dụ để chọn màu dark/light.
 
 ## Chọn component
 
@@ -89,7 +89,7 @@ Truyền `.loading`, `.empty`, `.error(message)` hoặc `.content(value)`. Mản
 
 ## Preview
 
-Dùng `.ironBitPreview(theme:)` cho theme, padding và preview layout. PreviewDevice presets chỉ có khi DEBUG. Mỗi component có #Preview trong source để xem initializer và các variant thực tế.
+Dùng `.hydraKitPreview(theme:)` cho theme, padding và preview layout. PreviewDevice presets chỉ có khi DEBUG. Mỗi component có #Preview trong source để xem initializer và các variant thực tế.
 
 ## API component nền tảng
 

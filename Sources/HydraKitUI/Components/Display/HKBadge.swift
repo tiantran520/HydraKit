@@ -14,7 +14,7 @@ public struct HKBadge: View {
         case error
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let variant: HKVariant
 

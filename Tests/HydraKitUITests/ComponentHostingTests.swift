@@ -82,7 +82,7 @@ final class ComponentHostingTests: XCTestCase {
     @MainActor
     func testNativePrimaryButtonStyleReadsInjectedTheme() {
         let theme = DefaultTheme(controls: ControlTokens(mediumHeight: 90))
-        let view = host(Button("Save") {}.buttonStyle(.hkPrimary).ironBitTheme(theme))
+        let view = host(Button("Save") {}.buttonStyle(.hkPrimary).hydraKitTheme(theme))
         XCTAssertGreaterThanOrEqual(view.fittingSize.height, 90)
     }
 
@@ -303,7 +303,7 @@ final class ComponentHostingTests: XCTestCase {
             }
             .padding(24)
             .background(scheme.defaultHydraTheme.colors.background)
-            .ironBitTheme(scheme.defaultHydraTheme)
+            .hydraKitTheme(scheme.defaultHydraTheme)
             .environment(\.colorScheme, scheme)
             let image = try XCTUnwrap(ImageRenderer(content: gallery.frame(width: 600, alignment: .leading)
                 .background(scheme.defaultHydraTheme.colors.background)).cgImage)
@@ -330,7 +330,7 @@ final class ComponentHostingTests: XCTestCase {
             }
             .padding(24)
             .background(scheme.defaultHydraTheme.colors.surface)
-            .ironBitTheme(scheme.defaultHydraTheme)
+            .hydraKitTheme(scheme.defaultHydraTheme)
             .environment(\.colorScheme, scheme)
             let view = host(gallery, width: 430)
             view.setFrameSize(view.fittingSize)

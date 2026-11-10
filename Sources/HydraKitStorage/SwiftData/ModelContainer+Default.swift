@@ -7,7 +7,7 @@ import SwiftData
 @available(iOS 17, macOS 14, tvOS 17, watchOS 10, visionOS 1, *)
 public extension ModelContainer {
     /// Creates a model container for the supplied schema.
-    static func ironBitDefault(
+    static func hydraKitDefault(
         for schema: Schema,
         isStoredInMemoryOnly: Bool = false
     ) throws -> ModelContainer {

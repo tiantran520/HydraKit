@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A snackbar with an optional action.
 public struct HKSnackbar: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let message: String
     private let actionTitle: String?
     private let action: (@MainActor () -> Void)?

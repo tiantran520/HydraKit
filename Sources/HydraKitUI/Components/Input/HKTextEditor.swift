@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed multiline text editor.
 public struct HKTextEditor: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Binding private var text: String
     private let minHeight: CGFloat
 

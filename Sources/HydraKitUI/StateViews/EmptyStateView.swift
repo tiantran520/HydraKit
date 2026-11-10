@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A reusable empty state view.
 public struct EmptyStateView: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let message: String?
     private let systemImage: String

@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A simple star rating display.
 public struct HKRating: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let value: Double
     private let maximum: Int
 

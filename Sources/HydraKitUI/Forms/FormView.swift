@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed form container.
 public struct FormView<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String?
     private let content: Content
 

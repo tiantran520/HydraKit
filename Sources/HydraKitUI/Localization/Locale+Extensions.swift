@@ -8,7 +8,7 @@ public extension Locale {
     }
 
     /// A readable language identifier.
-    var ironBitLanguageIdentifier: String {
+    var hydraKitLanguageIdentifier: String {
         language.languageCode?.identifier ?? identifier
     }
 }

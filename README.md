@@ -147,7 +147,7 @@ struct ContentView: View {
         HKButton("Tiếp tục") {
             print("Continue")
         }
-        .ironBitTheme(DefaultTheme())
+        .hydraKitTheme(DefaultTheme())
     }
 }
 ```
@@ -250,7 +250,7 @@ struct ContentView: View {
             }
         }
         .padding()
-        .ironBitTheme(DefaultTheme())
+        .hydraKitTheme(DefaultTheme())
     }
 }
 ```

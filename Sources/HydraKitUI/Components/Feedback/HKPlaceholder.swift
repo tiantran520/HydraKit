@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A neutral placeholder view.
 public struct HKPlaceholder: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let systemImage: String
 

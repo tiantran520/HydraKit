@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed picker for hashable values.
 public struct HKPicker<Value: Hashable>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let options: [(Value, String)]
     @Binding private var selection: Value

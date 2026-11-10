@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A centered modal container.
 public struct HKModal<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String?
     private let content: Content
 

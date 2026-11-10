@@ -4,7 +4,7 @@ public extension URLSessionConfiguration {
     /// Creates a default configuration for HKHydraKit network clients.
     /// - Parameter timeoutConfiguration: The timeout values applied to the session.
     /// - Returns: A configured URL session configuration.
-    static func ironBitDefault(
+    static func hydraKitDefault(
         timeoutConfiguration: TimeoutConfiguration = .default
     ) -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
@@ -22,7 +22,7 @@ public extension URLSessionConfiguration {
     /// Creates an ephemeral configuration for tests and previews.
     /// - Parameter timeoutConfiguration: The timeout values applied to the session.
     /// - Returns: A configured ephemeral URL session configuration.
-    static func ironBitEphemeral(
+    static func hydraKitEphemeral(
         timeoutConfiguration: TimeoutConfiguration = .default
     ) -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.ephemeral

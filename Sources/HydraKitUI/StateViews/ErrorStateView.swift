@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A reusable error state view.
 public struct ErrorStateView: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let message: String?
 

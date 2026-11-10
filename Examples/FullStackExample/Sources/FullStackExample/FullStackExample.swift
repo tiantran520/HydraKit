@@ -71,7 +71,7 @@ struct FullStackExample: App {
             let viewModel = HomeViewModel(repository: repository, router: router)
 
             FullStackContentView(viewModel: viewModel, router: router)
-                .ironBitTheme(DefaultTheme())
+                .hydraKitTheme(DefaultTheme())
         }
     }
 }

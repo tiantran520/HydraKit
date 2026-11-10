@@ -2,7 +2,7 @@ import SwiftUI
 
 /// One appearance implementation for native text and secure controls.
 struct HKFieldContainer<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let title: Text

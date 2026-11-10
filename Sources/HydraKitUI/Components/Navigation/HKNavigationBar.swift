@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A lightweight navigation bar.
 public struct HKNavigationBar<Trailing: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let trailing: Trailing
 

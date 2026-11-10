@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A reusable loading state view.
 public struct LoadingView: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
 
     /// Creates a loading view.

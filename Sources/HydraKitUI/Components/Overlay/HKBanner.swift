@@ -12,7 +12,7 @@ public struct HKBanner: View {
         case error
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String
     private let message: String?
     private let variant: HKVariant

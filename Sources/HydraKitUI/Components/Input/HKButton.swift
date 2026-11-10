@@ -1,13 +1,13 @@
 import SwiftUI
 
-/// A native button themed through `ironBitTheme`. The parent owns loading state.
+/// A native button themed through `hydraKitTheme`. The parent owns loading state.
 public struct HKButton<Label: View>: View {
     /// Visual treatment of the button.
     public enum HKVariant: Sendable { case primary, secondary, tertiary }
     /// Minimum height and padding; labels may grow vertically at any size.
     public enum HKSize: Sendable { case sm, md, lg }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let variant: HKVariant
     private let size: HKSize
     private let isLoading: Bool
@@ -121,7 +121,7 @@ struct HKComponentButtonStyle<Label: View>: ButtonStyle {
 
 // Environment is resolved on a View, including when the style is forwarded by hkPrimary.
 private struct HKButtonSurface<Content: View, Label: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let content: Content

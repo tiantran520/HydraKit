@@ -10,7 +10,7 @@ public struct HKStack<Content: View>: View {
         case vertical
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let axis: HKAxis
     private let spacing: CGFloat?
     private let content: Content

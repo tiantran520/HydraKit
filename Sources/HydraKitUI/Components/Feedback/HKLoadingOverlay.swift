@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Overlays a loading indicator over content.
 public struct HKLoadingOverlay<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let isLoading: Bool
     private let content: Content
 

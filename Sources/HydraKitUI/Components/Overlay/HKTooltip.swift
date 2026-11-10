@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A small tooltip bubble.
 public struct HKTooltip: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let text: String
 
     /// Creates a tooltip.

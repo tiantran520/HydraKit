@@ -5,7 +5,7 @@ public enum HKIconPlacement: Sendable { case leading, trailing }
 
 /// A native Label with themed typography and a decorative system symbol.
 public struct HKLabel: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.lineLimit) private var inheritedLineLimit
     @Environment(\.multilineTextAlignment) private var inheritedAlignment
     private let title: Text

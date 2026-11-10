@@ -5,7 +5,7 @@ public struct HKText: View {
     /// Typography roles resolved from the current theme.
     public enum HKVariant: Sendable { case title, headline, body, caption }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.lineLimit) private var inheritedLineLimit
     @Environment(\.multilineTextAlignment) private var inheritedAlignment
     private let value: Text

@@ -5,7 +5,7 @@ public struct HKIcon: View {
     /// Default point sizes; themes may replace these metrics through ControlTokens.
     public enum HKSize: CGFloat, Sendable { case sm = 16, md = 22, lg = 32 }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @ScaledMetric(relativeTo: .body) private var scale: CGFloat = 1
     private let name: String
     private let size: HKSize

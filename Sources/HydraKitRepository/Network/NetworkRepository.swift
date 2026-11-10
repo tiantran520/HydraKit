@@ -18,7 +18,7 @@ public final class HKNetworkRepository<ID: Hashable & Sendable, Mapper: DTOMappe
     public init(
         client: any NetworkClient,
         requestBuilder: any RequestBuilding = RequestBuilder(),
-        decoder: JSONDecoder = .ironBitDefault(),
+        decoder: JSONDecoder = .hydraKitDefault(),
         mapper: Mapper,
         readEndpoint: @escaping @Sendable (ID) -> any Endpoint,
         readAllEndpoint: (@Sendable () -> any Endpoint)? = nil,

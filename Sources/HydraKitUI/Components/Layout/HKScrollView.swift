@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed scroll view wrapper.
 public struct HKScrollView<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let axes: Axis.Set
     private let showsIndicators: Bool
     private let content: Content

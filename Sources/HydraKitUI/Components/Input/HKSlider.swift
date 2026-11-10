@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed slider.
 public struct HKSlider: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Binding private var value: Double
     private let range: ClosedRange<Double>
 

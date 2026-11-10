@@ -12,7 +12,7 @@ public struct CardStyle: ViewModifier {
         case elevated
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let variant: HKVariant
 
     /// Creates a card style modifier.

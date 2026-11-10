@@ -3,7 +3,7 @@ import SwiftUI
 /// A circular water-level indicator with two moving waves and a localized percentage.
 /// Percentage is parent-owned input in 0...100; the component never modifies it.
 public struct HKWaterWave: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     @State private var isMounted = false

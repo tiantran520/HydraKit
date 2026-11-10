@@ -25,7 +25,7 @@ private struct HKPlaceFlashcard: Identifiable {
 
 /// Offline sample used directly by the Canvas in HKFlashcardDeck.swift.
 struct HKFlashcardDeckPreview: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @ScaledMetric(relativeTo: .body) private var height: CGFloat = 340
     @State private var event = "Tap to flip. Swipe left to review, right if remembered."
     private let empty: Bool

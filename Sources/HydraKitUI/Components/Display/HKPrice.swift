@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A localized price display.
 public struct HKPrice: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let amount: Decimal
     private let currencyCode: String
 

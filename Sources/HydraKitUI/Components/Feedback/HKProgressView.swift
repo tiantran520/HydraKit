@@ -10,7 +10,7 @@ public struct HKProgressView: View {
         case linear(Double?)
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String?
     private let variant: HKVariant
 

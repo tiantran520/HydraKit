@@ -15,8 +15,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKit"
-               BuildableName = "IronBitCoreKit"
+               BlueprintIdentifier = "HydraKit"
+               BuildableName = "HydraKit"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,8 +28,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitUI"
-               BuildableName = "IronBitCoreKitUI"
+               BlueprintIdentifier = "HydraKitUI"
+               BuildableName = "HydraKitUI"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -41,8 +41,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitNavigation"
-               BuildableName = "IronBitCoreKitNavigation"
+               BlueprintIdentifier = "HydraKitNavigation"
+               BuildableName = "HydraKitNavigation"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -54,8 +54,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitNetwork"
-               BuildableName = "IronBitCoreKitNetwork"
+               BlueprintIdentifier = "HydraKitNetwork"
+               BuildableName = "HydraKitNetwork"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -67,8 +67,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitStorage"
-               BuildableName = "IronBitCoreKitStorage"
+               BlueprintIdentifier = "HydraKitStorage"
+               BuildableName = "HydraKitStorage"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -80,8 +80,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitDomain"
-               BuildableName = "IronBitCoreKitDomain"
+               BlueprintIdentifier = "HydraKitDomain"
+               BuildableName = "HydraKitDomain"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -93,8 +93,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitRepository"
-               BuildableName = "IronBitCoreKitRepository"
+               BlueprintIdentifier = "HydraKitRepository"
+               BuildableName = "HydraKitRepository"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -106,8 +106,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitMVVM"
-               BuildableName = "IronBitCoreKitMVVM"
+               BlueprintIdentifier = "HydraKitMVVM"
+               BuildableName = "HydraKitMVVM"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -119,8 +119,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitSecurity"
-               BuildableName = "IronBitCoreKitSecurity"
+               BlueprintIdentifier = "HydraKitSecurity"
+               BuildableName = "HydraKitSecurity"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -132,8 +132,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitAnalytics"
-               BuildableName = "IronBitCoreKitAnalytics"
+               BlueprintIdentifier = "HydraKitAnalytics"
+               BuildableName = "HydraKitAnalytics"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -145,8 +145,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitTesting"
-               BuildableName = "IronBitCoreKitTesting"
+               BlueprintIdentifier = "HydraKitTesting"
+               BuildableName = "HydraKitTesting"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -158,8 +158,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitDev"
-               BuildableName = "IronBitCoreKitDev"
+               BlueprintIdentifier = "HydraKitDev"
+               BuildableName = "HydraKitDev"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -176,8 +176,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitUITests"
-               BuildableName = "IronBitCoreKitUITests"
+               BlueprintIdentifier = "HydraKitUITests"
+               BuildableName = "HydraKitUITests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -185,8 +185,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitTests"
-               BuildableName = "IronBitCoreKitTests"
+               BlueprintIdentifier = "HydraKitTests"
+               BuildableName = "HydraKitTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -194,8 +194,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitTestingTests"
-               BuildableName = "IronBitCoreKitTestingTests"
+               BlueprintIdentifier = "HydraKitTestingTests"
+               BuildableName = "HydraKitTestingTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -203,8 +203,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitStorageTests"
-               BuildableName = "IronBitCoreKitStorageTests"
+               BlueprintIdentifier = "HydraKitStorageTests"
+               BuildableName = "HydraKitStorageTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -212,8 +212,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitSecurityTests"
-               BuildableName = "IronBitCoreKitSecurityTests"
+               BlueprintIdentifier = "HydraKitSecurityTests"
+               BuildableName = "HydraKitSecurityTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -221,8 +221,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitRepositoryTests"
-               BuildableName = "IronBitCoreKitRepositoryTests"
+               BlueprintIdentifier = "HydraKitRepositoryTests"
+               BuildableName = "HydraKitRepositoryTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -230,8 +230,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitNetworkTests"
-               BuildableName = "IronBitCoreKitNetworkTests"
+               BlueprintIdentifier = "HydraKitNetworkTests"
+               BuildableName = "HydraKitNetworkTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -239,8 +239,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitNavigationTests"
-               BuildableName = "IronBitCoreKitNavigationTests"
+               BlueprintIdentifier = "HydraKitNavigationTests"
+               BuildableName = "HydraKitNavigationTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -248,8 +248,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitMVVMTests"
-               BuildableName = "IronBitCoreKitMVVMTests"
+               BlueprintIdentifier = "HydraKitMVVMTests"
+               BuildableName = "HydraKitMVVMTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -257,8 +257,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitDomainTests"
-               BuildableName = "IronBitCoreKitDomainTests"
+               BlueprintIdentifier = "HydraKitDomainTests"
+               BuildableName = "HydraKitDomainTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -266,8 +266,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitDevTests"
-               BuildableName = "IronBitCoreKitDevTests"
+               BlueprintIdentifier = "HydraKitDevTests"
+               BuildableName = "HydraKitDevTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -275,8 +275,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "IronBitCoreKitAnalyticsTests"
-               BuildableName = "IronBitCoreKitAnalyticsTests"
+               BlueprintIdentifier = "HydraKitAnalyticsTests"
+               BuildableName = "HydraKitAnalyticsTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -303,8 +303,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "IronBitCoreKit"
-            BuildableName = "IronBitCoreKit"
+            BlueprintIdentifier = "HydraKit"
+            BuildableName = "HydraKit"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

@@ -12,7 +12,7 @@ public struct HKAvatar: View {
         case lg = 64
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let initials: String
     private let image: Image?
     private let size: HKSize

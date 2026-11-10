@@ -37,7 +37,7 @@ public struct HKSwitch: View {
         }
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @ScaledMetric(relativeTo: .body) private var scale: CGFloat = 1
@@ -198,7 +198,7 @@ public struct HKSwitch: View {
 }
 
 private struct HKSwitchButtonStyle: ButtonStyle {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label.opacity(configuration.isPressed ? theme.controls.pressedOpacity : 1)

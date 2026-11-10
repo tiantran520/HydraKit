@@ -12,7 +12,7 @@ public struct SkeletonView: View {
         case avatar
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let variant: HKVariant
 
     /// Creates a skeleton view.

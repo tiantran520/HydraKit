@@ -2,7 +2,7 @@ import SwiftUI
 
 /// A themed section container.
 public struct HKSection<Content: View>: View {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let title: String?
     private let content: Content
 

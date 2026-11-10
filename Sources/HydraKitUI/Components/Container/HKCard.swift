@@ -5,7 +5,7 @@ public struct HKCard<Content: View>: View {
     /// Plain surface, outlined surface, or a surface with the theme shadow.
     public enum HKVariant: Sendable { case plain, outlined, elevated }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let variant: HKVariant
     private let padding: CGFloat?
     private let background: Color?

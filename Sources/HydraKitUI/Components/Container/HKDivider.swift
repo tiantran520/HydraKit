@@ -10,7 +10,7 @@ public struct HKDivider: View {
         case vertical
     }
 
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     private let orientation: HKOrientation
 
     /// Creates a divider.

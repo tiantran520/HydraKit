@@ -23,7 +23,7 @@ struct HKComponentPreview<Content: View>: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(scheme.defaultHydraTheme.colors.background)
-        .ironBitTheme(scheme.defaultHydraTheme)
+        .hydraKitTheme(scheme.defaultHydraTheme)
         .environment(\.colorScheme, scheme)
         .environment(\.dynamicTypeSize, type)
     }

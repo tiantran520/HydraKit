@@ -5,7 +5,7 @@ import SwiftUI
 /// Items need unique, stable IDs. Content and selection remain owned by the caller.
 public struct HKParallaxCarousel<Data: RandomAccessCollection, Background: View, Overlay: View>: View
 where Data.Element: Identifiable {
-    @Environment(\.ironBitTheme) private var theme
+    @Environment(\.hydraKitTheme) private var theme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var localSelection: Data.Element.ID?
     @State private var scrollRevision: UInt = 0

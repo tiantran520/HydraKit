@@ -7,7 +7,7 @@ struct BasicApp: App {
         WindowGroup {
             BasicContentView()
                 // Theme được inject ở root để tất cả component con dùng chung token.
-                .ironBitTheme(DefaultTheme())
+                .hydraKitTheme(DefaultTheme())
         }
     }
 }
