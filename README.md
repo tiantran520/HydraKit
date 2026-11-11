@@ -117,6 +117,7 @@ Bạn không cần add toàn bộ package nếu app chỉ dùng một phần. N�
 - Dùng utilities, logging, DI: `HydraKit`
 - Dùng SwiftUI component/theme: `HydraKitUI`
 - Dùng API client/cache/interceptor: `HydraKitNetwork`
+- Dùng client sinh từ OpenAPI: `HydraKitOpenAPI` — thay `openapi.yaml` bằng contract thật trước khi dùng production; xem [hướng dẫn](Sources/HydraKitOpenAPI/README.md).
 - Dùng coordinator/router/deep link: `HydraKitNavigation`
 - Dùng UserDefaults/Keychain/File/CoreData/SwiftData/cache: `HydraKitStorage`
 - Dùng entity/value object/use case: `HydraKitDomain`
@@ -163,6 +164,7 @@ Dùng các link dưới đây để đi thẳng tới hướng dẫn của từn
 | `HydraKit` | [README](Sources/HydraKit/README.md) | [Sources/HydraKit](Sources/HydraKit/) |
 | `HydraKitUI` | [README](Sources/HydraKitUI/README.md) | [Sources/HydraKitUI](Sources/HydraKitUI/) |
 | `HydraKitNavigation` | [README](Sources/HydraKitNavigation/README.md) | [Sources/HydraKitNavigation](Sources/HydraKitNavigation/) |
+| `HydraKitOpenAPI` | [README](Sources/HydraKitOpenAPI/README.md) | [Sources/HydraKitOpenAPI](Sources/HydraKitOpenAPI/) |
 | `HydraKitNetwork` | [README](Sources/HydraKitNetwork/README.md) | [Sources/HydraKitNetwork](Sources/HydraKitNetwork/) |
 | `HydraKitStorage` | [README](Sources/HydraKitStorage/README.md) | [Sources/HydraKitStorage](Sources/HydraKitStorage/) |
 | `HydraKitDomain` | [README](Sources/HydraKitDomain/README.md) | [Sources/HydraKitDomain](Sources/HydraKitDomain/) |
@@ -181,6 +183,7 @@ Dùng các link dưới đây để đi thẳng tới hướng dẫn của từn
 | Bắt đầu sử dụng | [Documentation/HydraKit.docc/GettingStarted.md](Documentation/HydraKit.docc/GettingStarted.md) |
 | Kiến trúc package | [Documentation/HydraKit.docc/Architecture.md](Documentation/HydraKit.docc/Architecture.md) |
 | Dependency Injection | [Documentation/HydraKit.docc/Articles/DependencyInjection.md](Documentation/HydraKit.docc/Articles/DependencyInjection.md) |
+| OpenAPI | [Documentation/HydraKit.docc/Articles/OpenAPI.md](Documentation/HydraKit.docc/Articles/OpenAPI.md) |
 | Networking | [Documentation/HydraKit.docc/Articles/Networking.md](Documentation/HydraKit.docc/Articles/Networking.md) |
 | Navigation | [Documentation/HydraKit.docc/Articles/Navigation.md](Documentation/HydraKit.docc/Articles/Navigation.md) |
 | Theming | [Documentation/HydraKit.docc/Articles/Theming.md](Documentation/HydraKit.docc/Articles/Theming.md) |
@@ -223,6 +226,7 @@ Các README theo target có ví dụ hoàn chỉnh, cách cấu hình, hành vi 
 | [`HydraKit`](Sources/HydraKit/README.md) | Core utilities, extensions, logging, error handling, dependency injection, concurrency helpers. |
 | [`HydraKitUI`](Sources/HydraKitUI/README.md) | Design tokens, theme environment, SwiftUI components, state views, modifiers, layout, forms, media, animation, accessibility, localization, preview helpers. |
 | [`HydraKitNavigation`](Sources/HydraKitNavigation/README.md) | Coordinator, route abstraction, router, route registry, deep link, tab coordinator, sheet coordinator, flow coordinator. |
+| [`HydraKitOpenAPI`](Sources/HydraKitOpenAPI/README.md) | Swift OpenAPI Generator, transport qua NetworkClient và middleware auth; contract hiện là placeholder GET /ping. |
 | [`HydraKitNetwork`](Sources/HydraKitNetwork/README.md) | Endpoint, request builder, URLSession client, retry, timeout, interceptor, decoding, cache, reachability, security, mock network client. |
 | [`HydraKitStorage`](Sources/HydraKitStorage/README.md) | Storage protocols, type-safe keys, UserDefaults, Keychain, file storage, SwiftData, CoreData, cache. |
 | [`HydraKitDomain`](Sources/HydraKitDomain/README.md) | Entity, value object, validation/domain errors, use case abstractions. |

@@ -1,0 +1,30 @@
+# THAY FILE NÀY bằng contract thật của backend trước khi dùng production.
+openapi: 3.0.3
+info:
+  title: HydraKit Placeholder API
+  version: 1.0.0
+paths:
+  /ping:
+    get:
+      operationId: getPing
+      responses:
+        '200':
+          description: Service status
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+        '404':
+          description: Placeholder service not found
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [message]
+                properties:
+                  message:
+                    type: string

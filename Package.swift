@@ -16,6 +16,7 @@ let package = Package(
         .library(name: "HydraKitUI", targets: ["HydraKitUI"]),
         .library(name: "HydraKitNavigation", targets: ["HydraKitNavigation"]),
         .library(name: "HydraKitNetwork", targets: ["HydraKitNetwork"]),
+        .library(name: "HydraKitOpenAPI", targets: ["HydraKitOpenAPI"]),
         .library(name: "HydraKitStorage", targets: ["HydraKitStorage"]),
         .library(name: "HydraKitDomain", targets: ["HydraKitDomain"]),
         .library(name: "HydraKitRepository", targets: ["HydraKitRepository"]),
@@ -24,7 +25,11 @@ let package = Package(
         .library(name: "HydraKitAnalytics", targets: ["HydraKitAnalytics"]),
         .library(name: "HydraKitDev", targets: ["HydraKitDev"])
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/apple/swift-openapi-generator", from: "1.7.1"),
+        .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.7.0"),
+        .package(url: "https://github.com/apple/swift-http-types", from: "1.0.0")
+    ],
     targets: [
         .target(
             name: "HydraKit",
@@ -44,6 +49,16 @@ let package = Package(
             name: "HydraKitNetwork",
             dependencies: ["HydraKit"],
             exclude: ["README.md"]
+        ),
+        .target(
+            name: "HydraKitOpenAPI",
+            dependencies: [
+                "HydraKitNetwork",
+                .product(name: "OpenAPIRuntime", package: "swift-openapi-runtime"),
+                .product(name: "HTTPTypes", package: "swift-http-types")
+            ],
+            exclude: ["README.md"],
+            plugins: [.plugin(name: "OpenAPIGenerator", package: "swift-openapi-generator")]
         ),
         .target(
             name: "HydraKitStorage",
@@ -109,6 +124,7 @@ let package = Package(
         .testTarget(name: "HydraKitUITests", dependencies: ["HydraKitUI"]),
         .testTarget(name: "HydraKitNavigationTests", dependencies: ["HydraKitNavigation"]),
         .testTarget(name: "HydraKitNetworkTests", dependencies: ["HydraKitNetwork"]),
+        .testTarget(name: "HydraKitOpenAPITests", dependencies: ["HydraKitOpenAPI", "HydraKitNetwork", "HydraKit"]),
         .testTarget(name: "HydraKitStorageTests", dependencies: ["HydraKitStorage"]),
         .testTarget(name: "HydraKitDomainTests", dependencies: ["HydraKitDomain"]),
         .testTarget(name: "HydraKitRepositoryTests", dependencies: ["HydraKitRepository"]),

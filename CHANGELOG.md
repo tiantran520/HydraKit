@@ -19,6 +19,16 @@
 - Bổ sung hướng dẫn tiếng Việt cho cả 12 target: cấu hình, ví dụ sử dụng, vòng đời, xử lý lỗi và giới hạn tích hợp.
 - Mở rộng DocC theo từng module; làm rõ target Testing nội bộ và các helper cần adapter của app.
 
+## 1.1.0 (dự kiến, chưa tạo tag)
+
+- Sửa bridge non-2xx: khôi phục status/body từ unacceptableStatus để generated client decode output typed; giữ lỗi transport/cancellation và retry hiện có. Headers đã mất trong lỗi cũ không được dựng lại.
+- Bỏ precondition với body limit âm: send trả HKOpenAPITransportError có thể bắt; thêm HydraKitOpenAPI.version và giữ alias HKHydraKitOpenAPI.version.
+
+- Thêm product `HydraKitOpenAPI` độc lập, build plugin Swift OpenAPI Generator và runtime; không thêm dependency OpenAPI vào target Network cũ.
+- Thêm transport qua `NetworkClient`, middleware token và factory `HydraKitOpenAPI.makeClient`.
+- Contract placeholder `GET /ping`, tests cho bridge/auth/generated client và hướng dẫn thay contract, DI, xử lý lỗi.
+- Giữ nguyên public API và hằng số version của các module cũ. Các hằng số 0.1.0 cũ chưa đồng bộ tag 1.0.2; không sửa trong thay đổi này.
+
 ## 0.1.0
 
 - Khởi tạo skeleton Swift Package Manager cho HydraKit.

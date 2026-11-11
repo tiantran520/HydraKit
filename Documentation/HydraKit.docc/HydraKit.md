@@ -28,6 +28,7 @@ Package gom các lớp nền tảng thường gặp trong một app hiện đạ
 
 - <doc:DependencyInjection>
 - <doc:Networking>
+- <doc:OpenAPI>
 - <doc:Navigation>
 - <doc:Theming>
 - <doc:Components>
